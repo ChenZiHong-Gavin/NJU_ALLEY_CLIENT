@@ -1,0 +1,23 @@
+<!--index.wxml-->
+
+<view class="title">
+  <text>
+    南大小巷
+  </text>
+</view>
+
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <van-button round wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 开始 </van-button>
+      <van-button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开始 </van-button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+  </view>
+</view>

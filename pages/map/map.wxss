@@ -1,0 +1,17 @@
+/* pages/map/map.wxss */
+
+.userinfo {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  display: flex;
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}

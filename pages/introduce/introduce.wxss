@@ -1,0 +1,36 @@
+/* pages/introduce/introduce.wxss */
+
+.swiper_container
+{
+  margin-top: 50px;
+  text-align: center;
+  width: 100%;
+  height: 300px;
+}
+.wx-swiper-dots
+{
+  position:relative;
+}
+
+.aboutUs
+{
+    text-align: center;
+    font-weight: 900;
+    font-size: xx-large;
+}
+.swiper-text
+{
+  color: grey;
+}
+
+.next-container
+{
+  text-align: center;
+  margin-top: 40px;
+}
+/* UI组件中只有向下的箭头，现在把它旋转270° */
+.nextIcon
+{
+	transform: rotate(270deg);
+}
+

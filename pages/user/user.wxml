@@ -1,0 +1,12 @@
+<!--pages/user/user.wxml-->
+<text>
+  设置
+</text>
+
+<van-cell title="通知" is-link />
+<van-cell title="权限" is-link />
+<van-cell title="语言" is-link  />
+
+<van-cell title="使用条款" is-link />
+<van-cell title="联系我们" is-link />
+<van-cell title="分享" is-link  />

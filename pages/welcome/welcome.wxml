@@ -1,0 +1,43 @@
+<!--pages/welcome/welcome.wxml-->
+<!--欢迎页-->
+
+<!-- 采用flex布局 -->
+
+
+
+<!-- vertical控制横向还是纵向 -->
+<!-- indicator-dots是面板指示点 -->
+<swiper class="swiper_container"  circular indicator-dots autoplay interval="3000">
+          <swiper-item>
+          <image class="pre-image" src="../../static/state1.png" mode="heightFix"></image>
+          <view class="swiper-text">探索南京大学的建筑</view>
+          </swiper-item>
+          <swiper-item>
+          <image class="pre-image" src="../../static/state2.png" mode="heightFix"></image>
+          <view class="swiper-text">给出你的评价</view>
+          </swiper-item>
+          <swiper-item>
+         <image class="pre-image" src="../../static/state3.png" mode="heightFix"></image>
+          <view class="swiper-text">
+              和同学们愉快交流</view>
+          </swiper-item>
+
+</swiper>
+
+<!-- 欢迎词 -->
+<view class="welcomeWord">
+    <text>
+        欢迎光临南大小巷
+    </text>
+</view>
+
+    <view class='next-container' bindtap='onBindNextTap'>
+        <van-button color="#4CE5B1" plain>
+            Next
+            <van-icon class="nextIcon" name="down" />
+        </van-button>
+</view>
+
+<view class='skip-container' bindtap='onBindSkipTap'>
+    <text>Skip</text>
+</view>

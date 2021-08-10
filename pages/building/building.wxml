@@ -1,0 +1,6 @@
+<!--pages/building/building.wxml-->
+<image></image>
+<text>介绍</text>
+<view bindtap='onBindReviewTap'>
+  <text>点评</text>
+</view>

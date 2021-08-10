@@ -1,0 +1,40 @@
+<!--pages/introduce/introduce.wxml-->
+
+<view class="introduce">
+
+<!-- vertical控制横向还是纵向 -->
+<!-- indicator-dots是面板指示点 -->
+<swiper class="swiper_container"  circular indicator-dots autoplay interval="3000">
+          <swiper-item>
+          <image class="pre-image" src="../../static/state1.png" mode="heightFix"></image>
+          <view class="swiper-text">“鸿鹄志”社会实践团队</view>
+          </swiper-item>
+          <swiper-item>
+          <image class="pre-image" src="../../static/state2.png" mode="heightFix"></image>
+          <view class="swiper-text">刻师傅牛杂摊</view>
+          </swiper-item>
+          <swiper-item>
+         <image class="pre-image" src="../../static/state3.png" mode="heightFix"></image>
+          <view class="swiper-text">
+              神灯科技</view>
+          </swiper-item>
+</swiper>
+
+<!-- 关于我们 -->
+<view class="aboutUs">
+    <text>
+        关于我们
+    </text>
+</view>
+
+</view>
+
+
+
+<view class='next-container' bindtap='onBindNextTap'>
+    <van-button color="#4CE5B1" plain>
+     Next
+     <van-icon class="nextIcon" name="down" />
+ </van-button>
+</view>
+

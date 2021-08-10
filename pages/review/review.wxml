@@ -1,0 +1,9 @@
+<!--pages/review/review.wxml-->
+<van-rate
+  value="{{ value }}"
+  size="{{ 25 }}"
+  color="#ffd21e"
+  void-icon="star"
+  void-color="#eee"
+  bind:change="onChange"
+/>

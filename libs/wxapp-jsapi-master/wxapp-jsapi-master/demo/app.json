@@ -1,0 +1,44 @@
+{"permission": {
+  "scope.userLocation": {
+    "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+  }},
+  "pages": [
+    "pages/search/search",
+    "pages/suggestion/suggestion",
+    "pages/geocoding/geocoding",
+    "pages/regeocoding/regeocoding",
+    "pages/weather/weather"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#121212",
+    "navigationBarTitleText": "BMapWX",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#ddd"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#4db900",
+    "backgroundColor": "#fbfbfd",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/search/search",
+        "text": "search"
+      },
+      {
+        "pagePath": "pages/suggestion/suggestion",
+        "text": "suggestion"
+      },
+      {
+        "pagePath": "pages/regeocoding/regeocoding",
+        "text": "regeocoding"
+      },
+      {
+        "pagePath": "pages/weather/weather",
+        "text": "weather"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

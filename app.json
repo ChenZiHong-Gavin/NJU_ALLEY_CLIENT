@@ -1,0 +1,29 @@
+{
+  "usingComponents": {
+    "van-button": "vant-weapp/dist/button/index",
+    "van-icon":"vant-weapp/dist/icon/index",
+    "van-cell":"vant-weapp/dist/cell/index",
+    "van-rate":"vant-weapp/dist/rate/index"
+  },
+  "pages":[
+    "pages/white/white",
+    "pages/index/index",
+    "pages/welcome/welcome",
+    "pages/introduce/introduce",
+    "pages/map/map",
+    "pages/building/building",
+    "pages/review/review",
+    "pages/user/user",
+    "pages/logs/logs"
+  ],
+  "permission": {
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#4CE5B1",
+    "navigationBarTitleText": "南大巷子",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

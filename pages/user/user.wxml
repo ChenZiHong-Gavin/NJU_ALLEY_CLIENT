@@ -1,8 +1,14 @@
 <!--pages/user/user.wxml-->
+
+<view class="settings">
 <text>
   设置
 </text>
+</view>
 
+<van-card thumb-class="avatar"
+  thumb="{{ userInfo.avatarUrl }}"
+/>
 <van-cell title="通知" is-link />
 <van-cell title="权限" is-link />
 <van-cell title="语言" is-link  />

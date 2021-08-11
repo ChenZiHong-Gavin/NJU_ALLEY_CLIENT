@@ -1,11 +1,12 @@
 /* pages/map/map.wxss */
 
-.userinfo {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  color: #aaa;
+.userinfo
+{
+  position:absolute;
+  left: 20px;
+  top: 20px;
 }
+
 
 .userinfo-avatar {
   display: flex;
@@ -14,4 +15,14 @@
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
+}
+
+
+
+.map
+{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
 }

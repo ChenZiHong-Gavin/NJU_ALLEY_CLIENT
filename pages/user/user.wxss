@@ -1,5 +1,18 @@
 /* pages/user/user.wxss */
-page
+
+.settings
 {
-  background: 
+  height: 160px;
+  background: ;
+  font-size: xx-large;
+  font-weight: 900;
+}
+
+
+
+/* 添加!important以保证外部样式类的优先级。 */
+.avatar
+{
+overflow: hidden !important;
+border-radius: 50% !important;
 }

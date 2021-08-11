@@ -1,6 +1,5 @@
 // pages/map/map.js
 const app = getApp()
-// 调用百度地图api
 
 Page({
 
@@ -9,8 +8,8 @@ Page({
    */
   data: {
     userInfo: null,
-     latitude:32.11772,
-    longitude:118.958187,
+    latitude:32.11650,
+    longitude:118.958150,
     height:200,
   },
 

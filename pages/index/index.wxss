@@ -2,11 +2,21 @@
 
 page
 {
-  background:#4CE5B1;
+  background:#3EB575;
 }
 
 .title
 {
   font-weight:900;
   text-align: center;
+}
+
+.begin
+{
+text-align: center;
+position: absolute;
+bottom: 100px;
+margin: auto;
+left: 0;
+right: 0;
 }

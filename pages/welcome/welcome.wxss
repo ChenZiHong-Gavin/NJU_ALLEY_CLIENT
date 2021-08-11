@@ -52,7 +52,11 @@
 .next-container
 {
   text-align: center;
-  margin-top: 40px;
+  position: absolute;
+  bottom: 100px;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 /* UI组件中只有向下的箭头，现在把它旋转270° */
 .nextIcon

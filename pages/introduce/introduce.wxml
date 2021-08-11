@@ -38,3 +38,9 @@
  </van-button>
 </view>
 
+<view class="copyRight">
+    <text>
+        Copyright © 2021 Hou&Chen.
+    </text>
+</view>
+

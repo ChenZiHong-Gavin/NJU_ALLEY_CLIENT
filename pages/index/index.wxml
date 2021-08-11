@@ -15,8 +15,9 @@
       <open-data type="userNickName"></open-data>
     </block>
     <block wx:elif="{{!hasUserInfo}}">
-      <van-button round wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 开始 </van-button>
-      <van-button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 开始 </van-button>
+      <van-button color="#007AFF" class="begin" plain wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 
+        开始探索 
+      </van-button>
       <view wx:else> 请使用1.4.4及以上版本基础库 </view>
     </block>
   </view>

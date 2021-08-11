@@ -1,6 +1,6 @@
 /* pages/map/map.wxss */
 
-.userinfo
+.userinfo,.building-container
 {
   position:absolute;
   left: 20px;

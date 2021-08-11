@@ -22,6 +22,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#3EB575",
+    "navigationStyle": "custom",
     "navigationBarTitleText": "南大巷子",
     "navigationBarTextStyle":"black"
   },

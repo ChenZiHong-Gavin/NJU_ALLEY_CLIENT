@@ -143,3 +143,9 @@ web-view是承载网页的容器
 
 
 
+全面屏： "navigationStyle": "custom",
+
+
+
+
+

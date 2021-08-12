@@ -1,5 +1,11 @@
 // pages/map/map.js
+import {Arch} from '../../model/arch'
+
+const archApi = new Arch()
+
 const app = getApp()
+
+var mapCtx;
 
 Page({
 
@@ -11,6 +17,7 @@ Page({
     latitude:32.11650,
     longitude:118.958150,
     height:200,
+    markers:[]
   },
 
   /**
@@ -25,17 +32,51 @@ Page({
   }
   var that=this;
  
+  wx.getSystemInfo({
+    success: (result) => {
+      that.setData(
+        {
+          height: result.windowHeight
+        }
+      )
+    },
+  })
 
+  mapCtx = wx.createMapContext('myMap');
 
-wx.getSystemInfo({
-  success: (result) => {
-    that.setData(
-      {
-        height: result.windowHeight
-      }
-    )
-  },
-})
+  that.showMarkers();
+
+},
+
+showMarkers(){
+  var markers = [];
+  archApi.getAllBuildings().then(res =>{
+    res.data.forEach((p)=>{
+      let marker = {id:p.archId,latitude:p.latitude,longitude:p.longitude,iconPath:'../../static/image/index/ding.png',width:20,height:20}
+      markers.push(marker)
+      this.setData({
+        markers:markers
+      });
+    })
+  }).catch(err =>{
+    console.log(err)
+  })
+  mapCtx.addMarkers({
+    markers,
+    clear: false,
+    complete(res) {
+      // console.log('addMarkers', res)
+    }
+  })
+},
+
+onMarkerTap: function (e) {
+  //console.log(e)
+  let archId = e.markerId;
+  console.log("map-archId: " + archId)
+  wx.navigateTo({
+    url: '../../pages/building/building?archId=' + archId
+  })
 },
 
 
@@ -97,12 +138,12 @@ wx.getSystemInfo({
 
   },
 
-  onBindBuildingTap: function () {
-    wx.navigateTo({
+  // onBindBuildingTap: function () {
+  //   wx.navigateTo({
    
-      url: '../building/building',
+  //     url: '../building/building',
        
-      })
-  }
+  //     })
+  // }
 
 })

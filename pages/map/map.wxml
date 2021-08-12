@@ -2,13 +2,16 @@
 <!-- 试了很多方法，还是用微信小程序原生组件吧 -->
 <!-- enable3d是3D模块 -->
 <!-- skew调整视角 -->
-<map class="map" 
+<map id="myMap"
+class="map" 
 enable-3D 
 latitude="{{latitude}}"
 longitude="{{longitude}}"
 rotate="200"
 skew="40"
-scale="18">
+scale="18"
+markers="{{markers}}"
+bindmarkertap="onMarkerTap">
 
 </map>
 
@@ -16,6 +19,6 @@ scale="18">
   <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" 
 mode="cover"></image>
 </view>
-<view class='building-container' bindtap='onBindBuildingTap'>
+<!-- <view class='building-container' bindtap='onBindBuildingTap'>
 <text>红点</text>
-</view>
+</view> -->

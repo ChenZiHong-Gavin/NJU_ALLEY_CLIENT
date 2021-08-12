@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value: 3,
+    value: 0,
+    user_name:"",
+    building_name:"",
+    mark_text_value:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    that.setData({
+      user_name:"小明",
+      building_name:"大活"
+    })
+    
   },
 
   /**
@@ -68,5 +76,21 @@ Page({
     this.setData({
       value: event.detail,
     });
+  },
+
+  /**
+   * textarea输入内容绑定
+   * @param {*} e 
+   */
+  onInputMarkText(e){
+    this.setData({
+      mark_text_value:e.detail.value
+    })
+  },
+  /**
+   * 用户提交点评结果
+   */
+  onSubmitMarkTap(){
+     // console.log(this.data.mark_text_value)
   }
 })

@@ -1,1 +1,37 @@
 /* pages/building/building.wxss */
+page{
+  background: #3EB575;
+  height: 100%;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+
+}
+.intro_pic{
+  margin-top: 50rpx;
+  border-radius: 50%;
+  width: 600rpx;
+  height: 600rpx;
+}
+
+.building_name{
+  font-size: xx-large;
+  font-weight: 900px;
+}
+.intro_text{
+  margin-top:-10px;
+  width:80%;
+  font-size: 18px;
+  display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.marker_btn{
+  bottom: 40px;
+}

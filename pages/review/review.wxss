@@ -1,1 +1,56 @@
 /* pages/review/review.wxss */
+page{
+  background: #3EB575;
+  height: 100%;
+  width:100%;
+}
+.container{
+  width:100%;
+  height: 100%;
+  }
+.title{
+ font-size: x-large;
+ color:white;
+ display: flex;
+ justify-content: center;
+ margin-top: 50px;
+}
+.card{
+  margin-top: -20px;
+  background-color: white;
+  width:90%;
+  height:95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5%;
+}
+
+.name{
+  margin-top:20px;
+  letter-spacing:10rpx;
+  font-size: 20px;
+}
+
+.prompt{
+  font-size: xx-large;
+  margin-top: 20px;
+}
+.mark_stars{
+  margin-top:50px;
+}
+.mark_text{
+  margin-top:80px;
+  border:solid;
+  border-width: 1px;
+  border-color: gray;
+  height:30%;
+}
+.mark_text_input{
+  margin-top:10px;
+  margin-left: 10px;
+  margin-right:10px;
+}
+.submit_btn{
+  margin-top:80rpx;
+}

@@ -1,9 +1,38 @@
 <!--pages/review/review.wxml-->
-<van-rate
-  value="{{ value }}"
-  size="{{ 25 }}"
-  color="#ffd21e"
-  void-icon="star"
-  void-color="#eee"
-  bind:change="onChange"
-/>
+<!-- <page-meta>
+ <navigation-bar 
+ title="点评"
+ front-color="#fffff"
+ />
+</page-meta> -->
+<text class="title" >点评</text>
+<div class="container" >
+  <div class="card">
+    <view class="name">{{user_name}}</view>
+    <view class="prompt">你对{{building_name}}有什么看法?</view>
+    <view  class="mark_stars">
+      <van-rate
+        value="{{ value }}"
+        size="{{ 60 }}"
+        color="#ffd21e"
+        void-icon="star"
+        void-color="#eee"
+        bind:change="onChange"
+      />
+    </view>
+    <div class="mark_text">
+      <view class="mark_text_input">
+        <textarea 
+        value="{{mark_text_value}}" 
+        placeholder="在这里输入你的评论"
+        placeholder-style="font-size:18px"
+        bindinput="onInputMarkText"
+        name="textarea"
+        > </textarea>
+      </view>
+    </div>
+    <view class="submit_btn" bindtap="onSubmitMarkTap">
+      <button style="background-color:#007aff;color:white;width:400rpx;">提交</button>
+    </view>
+  </div>
+</div>

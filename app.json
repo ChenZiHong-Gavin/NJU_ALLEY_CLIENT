@@ -8,6 +8,7 @@
     "van-swipe-cell": "vant-weapp/dist/swipe-cell/index"
   },
   "pages":[
+    
     "pages/white/white",
     "pages/index/index",
     "pages/welcome/welcome",

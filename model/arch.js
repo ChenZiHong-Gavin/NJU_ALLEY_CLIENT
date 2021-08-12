@@ -56,7 +56,7 @@ class Arch extends Request{
   //       des:'伟华体育场是仙林校区最活跃的体育运动场，位于教学楼旁侧，是举办大型校内活动的专属地点',
   //       latitude:32.112457,
   //       longitude:118.956021,
-  //       pictures:'https://nju-alley.oss-cn-beijing.aliyuncs.com/0.jpg',
+  //       pictures:['https://nju-alley.oss-cn-beijing.aliyuncs.com/0.jpg'],
   //       // comments:[
   //       //   {id:0,postId:1,content:"这必须去呀",userId:7,createTime:"2021-05-21 10:28:08"},
   //       //   {id:1,postId:1,content:"十大等我！！！",userId:7,createTime:"2021-05-22 10:30:00"},
@@ -66,7 +66,7 @@ class Arch extends Request{
   //       // ]
   //     },
   //   })
-  
+
   }
   
 }

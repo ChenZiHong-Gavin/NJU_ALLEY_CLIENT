@@ -33,7 +33,7 @@ Page({
     archApi.getBuildingDetail({archId:archId}).then(res =>{
       that.setData({
         archId:archId,
-        picture:res.data.pictures,
+        picture:res.data.pictures[0],
         intro_text:res.data.des,
         building_name:res.data.name
       })

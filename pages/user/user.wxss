@@ -5,13 +5,35 @@
   height: 160px;
   font-size: xx-large;
   font-weight: 900;
+  background: #3EB575;
+}
+.settings-content
+{
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 20px;
+  color: white;
 }
 
-
+.avatar-card
+{
+  margin-top: 20px;
+}
 
 /* 添加!important以保证外部样式类的优先级。 */
 .avatar
 {
 overflow: hidden !important;
 border-radius: 50% !important;
+}
+
+.settings-other
+{
+  margin-top: 20px;
+}
+
+.cell-title
+{
+  color: grey;
+  text-align: center;
 }

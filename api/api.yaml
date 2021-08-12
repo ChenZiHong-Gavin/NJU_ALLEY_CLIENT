@@ -1,0 +1,564 @@
+openapi: 3.0.3
+
+info:
+  title: API 文档
+  description: 用于建筑评分的 nju-alley API 文档
+  version: 1.0.0
+
+servers:
+  - url: 'https://<czh-domain>:<port>/api'
+
+tags:
+  - name: arch
+  - name: user
+  - name: comment
+  - name: notice
+
+paths:
+  /arch/view/{archId}:
+    get:
+      tags:
+        - arch
+      summary: 查看建筑信息
+      description: 通过 arch_id 查看建筑信息
+      parameters:
+        - name: archId
+          in: path
+          description: 建筑 id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/ArchVO"
+  /arch/comment:
+    post:
+      tags:
+        - arch
+      summary: 评论建筑
+      description: 通过 commentDTO 评论建筑
+      requestBody:
+        required: true
+        description: 组建一个对建筑的评论所需要的信息
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchCommentDTO'
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/CommentVO"
+  /arch/mark/{archId}:
+    post:
+      tags:
+        - arch
+      summary: 对建筑评分
+      description: 评分，可以选择 1-5
+      parameters:
+        - name: archId
+          in: path
+          required: true
+          description: 建筑 id
+          schema:
+            type: integer
+        - name: score
+          in: query
+          required: true
+          description: 分数
+          schema:
+            type: integer
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+              - 5
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseVO"
+  /arch/all:
+    get:
+      tags:
+        - arch
+      summary: 获取所有建筑
+      description: 获取所有建筑必要信息，用于在地图上展示
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ArchViewVO"
+
+  /user/login:
+    post:
+      tags:
+        - user
+      summary: 用户登录
+      description: 用户登录，更新一些必要信息
+      requestBody:
+        required: true
+        description: 登录信息
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLoginDTO'
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/UserVO"
+  /user/view/{userId}:
+    get:
+      tags:
+        - user
+      summary: 查看用户信息
+      description: 通过 userId 获取用户信息
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: 用户 id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/UserVO"
+  /user/update:
+    post:
+      tags:
+        - user
+      summary: 更新用户信息
+      description: 更新用户信息，主要是更改设置
+      requestBody:
+        required: true
+        description: 用户信息
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/UserVO"
+  /user/comments/{userId}:
+    get:
+      tags:
+        - user
+      summary: 获取用户发表的所有评论
+      description: 通过 userId 获取用户发表的所有评论
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: 用户 id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/CommentVO"
+  /user/notices/{userId}:
+    get:
+      tags:
+        - user
+      summary: 获取所有通知
+      description: 获取用户的所有通知
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: 用户 id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/NoticeVO"
+
+  /comment/comment:
+    post:
+      tags:
+        - comment
+      summary: 评论一条评论
+      description: 发表子评论
+      requestBody:
+        required: true
+        description: 组建一个子评论所需要的信息
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChildCommentDTO'
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/CommentVO"
+  /comment/like/{commentId}:
+    post:
+      tags:
+        - comment
+      summary: 点赞或取消点赞评论
+      description: 通过数据库状态决定是点赞还是取消点赞评论
+      parameters:
+        - name: commentId
+          in: path
+          required: true
+          description: 评论 id
+          schema:
+            type: integer
+        - name: userId
+          in: query
+          required: true
+          description: 评论者的用户 id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseVO"
+  /comment/view/{commentId}:
+    get:
+      tags:
+        - comment
+      summary: 查看评论
+      description: 通过评论 id 查看评论信息
+      parameters:
+        - name: commentId
+          in: path
+          required: true
+          description: 评论 id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/CommentVO"
+
+  /notice/view/{noticeId}:
+    post:
+      tags:
+        - notice
+      summary: 阅读通知
+      description: 阅读通知并标记通知为已读
+      parameters:
+        - name: noticeId
+          in: path
+          required: true
+          description: 通知 id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseVO"
+
+components:
+  schemas:
+    ResponseVO:
+      type: object
+      description: 返回值封装
+      properties:
+        code:
+          type: integer
+          description: 返回码，1 成功，0 失败，暂定
+        message:
+          type: string
+          description: 描述
+        data:
+          type: object
+          description: 返回值
+
+    ArchVO:
+      type: object
+      description: 建筑信息
+      properties:
+        archId:
+          type: integer
+          description: 建筑 id
+        name:
+          type: string
+          description: 建筑名
+        des:
+          type: string
+          description: 建筑描述
+        score:
+          type: integer
+          description: 建筑评分，只有五种选择
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+        longitude:
+          type: string
+          description: 经度，使用 string 是为了避免精度失真
+        latitude:
+          type: string
+          description: 纬度
+        pictures:
+          type: array
+          items:
+            type: string
+          description: 建筑图片 url 列表
+        comments:
+          type: array
+          items:
+            $ref: "#/components/schemas/CommentVO"
+    ArchViewVO:
+      type: object
+      description: 建筑的简略信息，用于一开始展现在地图上
+      properties:
+        archId:
+          type: integer
+          description: 建筑 id
+        longitude:
+          type: string
+          description: 经度，使用 string 是为了避免精度失真
+        latitude:
+          type: string
+          description: 纬度
+    CommentVO:
+      type: object
+      description: 评论信息
+      properties:
+        commentId:
+          type: integer
+          description: 评论 id
+        archId:
+          type: integer
+          description: 建筑 id
+        fatherId:
+          type: integer
+          description: 父评论 id，如果没有父评论则为 -1
+        likeNum:
+          type: integer
+          description: 点赞数
+        createT:
+          type: string
+          format: date-time
+          description: 创建时间
+        isLike:
+          type: boolean
+          description: 用户是否点赞
+        children:
+          type: array
+          description: 子评论，递归引用 openapi 显示不出来
+          items:
+            $ref: "#/components/schemas/CommentVO"
+    UserVO:
+      type: object
+      description: 用户信息
+      properties:
+        userId:
+          type: integer
+          description: 用户 id，个人用户从 2 开始，1 为系统
+        name:
+          type: string
+          description: 用户名
+        gender:
+          type: integer
+          description: 性别，1 为男，2 为女
+          enum:
+            - 1
+            - 2
+        avatar:
+          type: string
+          description: 头像 url
+        locateAuth:
+          type: boolean
+          description: 是否允许定位
+    NoticeVO:
+      type: object
+      description: 通知信息
+      properties:
+        noticeId:
+          type: integer
+          description: 通知 id
+        senderId:
+          type: integer
+          description: 发送通知的用户的 id
+        commentId:
+          type: integer
+          description: 原评论 id
+        content:
+          type: string
+          description: 通知内容
+        isUnread:
+          type: boolean
+          description: 是否未读
+
+    ArchCommentDTO:
+      type: object
+      description: 组建一个对建筑的评论所需要的信息
+      properties:
+        archId:
+          type: integer
+          description: 建筑 id
+        userId:
+          type: integer
+          description: 评论用户的 id
+        content:
+          type: string
+          description: 评论内容
+    UserLoginDTO:
+      type: object
+      description: 用户登录的必要信息
+      properties:
+        code:
+          type: string
+          description: 微信小程序登录码
+        name:
+          type: string
+          description: 用户名
+        gender:
+          type: integer
+          description: 性别，1 为男，2 为女
+          enum:
+            - 1
+            - 2
+        avatar:
+          type: string
+          description: 头像 url
+    UserDTO:
+      type: object
+      description: 更新用户信息所需的信息
+      properties:
+        userId:
+          type: integer
+          description: 用户 id
+        locateAuth:
+          type: boolean
+          description: 是否允许定位
+    ChildCommentDTO:
+      type: object
+      description: 组建一个子评论所需要的信息
+      properties:
+        archId:
+          type: integer
+          description: 建筑 id
+        fatherId:
+          type: integer
+          description: 父评论 id
+        userId:
+          type: integer
+          description: 评论用户的 id
+        content:
+          type: string
+          description: 评论内容
+
+

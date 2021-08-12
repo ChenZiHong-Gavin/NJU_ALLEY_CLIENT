@@ -69,5 +69,16 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  onBindBackTap: function() {
+ 
+    wx.setStorageSync('welcome',true);
+     
+    wx.navigateTo({
+     
+    url: '../map/map',
+     
+    })
+  }  
 })

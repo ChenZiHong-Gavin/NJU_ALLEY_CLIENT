@@ -4,7 +4,8 @@
     "van-icon":"vant-weapp/dist/icon/index",
     "van-cell":"vant-weapp/dist/cell/index",
     "van-rate":"vant-weapp/dist/rate/index",
-    "van-card":"vant-weapp/dist/card/index"
+    "van-card":"vant-weapp/dist/card/index",
+    "van-swipe-cell": "vant-weapp/dist/swipe-cell/index"
   },
   "pages":[
     "pages/white/white",

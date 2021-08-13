@@ -5,9 +5,11 @@
     "van-cell": "vant-weapp/dist/cell/index",
     "van-rate": "vant-weapp/dist/rate/index",
     "van-card": "vant-weapp/dist/card/index",
-    "van-swipe-cell": "vant-weapp/dist/swipe-cell/index"
+    "van-swipe-cell": "vant-weapp/dist/swipe-cell/index",
+    "van-share-sheet": "vant-weapp/dist/share-sheet/index"
   },
   "pages":[
+   
     "pages/white/white",
     "pages/index/index",
     "pages/welcome/welcome",
@@ -18,8 +20,8 @@
     "pages/user/user",
     "pages/conversation/conversation",
     "pages/review-success/review-success",
-    "pages/logs/logs",
-    "pages/notifications/notifications"
+    "pages/notifications/notifications",
+    "pages/logs/logs"
   ],
   "permission": {},
   "window": {

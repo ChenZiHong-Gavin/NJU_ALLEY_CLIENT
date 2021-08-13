@@ -6,8 +6,51 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-    userInfo: null,
+   data: {
+     userInfo:null,
+    showShare: false,
+    options: [
+      [
+        { name: '微信', icon: 'wechat' },
+        { name: '微博', icon: 'weibo' },
+        { name: 'QQ', icon: 'qq' },
+      ],
+      [
+        { name: '复制链接', icon: 'link' },
+        { name: '分享海报', icon: 'poster' },
+        { name: '二维码', icon: 'qrcode' },
+      ],
+    ],
+  },
+   data: {
+    showShare: false,
+    options: [
+      [
+        { name: '微信', icon: 'wechat' },
+        { name: '微博', icon: 'weibo' },
+        { name: 'QQ', icon: 'qq' },
+      ],
+      [
+        { name: '复制链接', icon: 'link' },
+        { name: '分享海报', icon: 'poster' },
+        { name: '二维码', icon: 'qrcode' },
+      ],
+    ],
+  },
+   data: {
+    showShare: false,
+    options: [
+      [
+        { name: '微信', icon: 'wechat' },
+        { name: '微博', icon: 'weibo' },
+        { name: 'QQ', icon: 'qq' },
+      ],
+      [
+        { name: '复制链接', icon: 'link' },
+        { name: '分享海报', icon: 'poster' },
+        { name: '二维码', icon: 'qrcode' },
+      ],
+    ],
   },
 
   /**
@@ -80,5 +123,17 @@ Page({
     url: '../map/map',
      
     })
-  }  
+  },
+  onClick(event) {
+    this.setData({ showShare: true });
+  },
+
+  onClose(event) {
+    this.setData({ showShare: false });
+  },
+
+  onSelect(event) {
+    Toast(event.detail.name);
+    this.onClose();
+  }
 })

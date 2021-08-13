@@ -10,14 +10,9 @@
           <view class="swiper-text">“鸿鹄志”社会实践团队</view>
           </swiper-item>
           <swiper-item>
-          <image class="pre-image" src="../../static/state2.png" mode="heightFix"></image>
+          <image class="pre-image" src="../../static/image/introduce/state2.jpg" mode="heightFix"></image>
           <view class="swiper-text">刻师傅牛杂摊</view>
-          </swiper-item>
-          <swiper-item>
-         <image class="pre-image" src="../../static/state3.png" mode="heightFix"></image>
-          <view class="swiper-text">
-              神灯科技</view>
-          </swiper-item>
+          </swiper-item> 
 </swiper>
 
 <!-- 关于我们 -->

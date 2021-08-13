@@ -15,31 +15,37 @@
 />
 </view>
 
+
 <view class="settings-other">
 <!-- cell-group提供上下边框 -->
 <!-- inset使得cell变成卡片类型 -->
   <van-cell-group inset>
-<van-cell title="通知" is-link />
-<van-cell title="权限" is-link />
+<van-cell title="通知"   icon="chat-o">
+</van-cell>
+<van-cell title="使用条款与权限" is-link  icon="records" />
+<!-- 要设置两倍宽度 -->
+<van-swipe-cell right-width="{{ 130 }}" >
+  <van-cell-group>
+    <van-cell title="语言"  value="向左滑动" icon="friends-o" />
+  </van-cell-group>
+  <view slot="right">
+  <view class="chinese">中文</view>
+  <view class="english">英文</view>
+  </view>
+</van-swipe-cell>
 
-<van-cell title="使用条款" is-link />
-<van-cell title="联系我们" is-link />
-<van-cell title="分享" is-link  />
+<van-cell title="联系我们" is-link  icon="envelop-o"/>
+<van-cell title="分享" bind:click="onClick"  icon="share-o"/>
+<van-share-sheet
+  show="{{ showShare }}"
+  title="立即分享给好友"
+  options="{{ options }}"
+  bind:select="onSelect"
+  bind:close="onClose"
+/>
 
 <van-cell title-class="cell-title" title="退出"  />
   </van-cell-group>
 
-  <van-swipe-cell
-  id="swipe-cell2"
-  right-width="{{ 65 }}"
-  left-width="{{ 65 }}"
-  name="示例"
-  bind:open="onOpen"
->
-  <view slot="left" class="van-swipe-cell__left">选择</view>
-  <van-cell-group>
-    <van-cell title="单元格" value="内容" />
-  </van-cell-group>
-  <view slot="right" class="van-swipe-cell__right">删除</view>
-</van-swipe-cell>
 </view>
+

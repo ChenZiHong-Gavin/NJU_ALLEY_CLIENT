@@ -34,7 +34,9 @@
 <view class='next-container' bindtap='onBindNextTap'>
     <van-button color="#4CE5B1" plain>
      Next
+     <view class="animate">
      <van-icon class="nextIcon" name="down" />
+     </view>
  </van-button>
 </view>
 

@@ -33,10 +33,31 @@ left: 0;
 right: 0;
 }
 /* UI组件中只有向下的箭头，现在把它旋转270° */
+
+.animate
+{
+  float: right;
+  margin-left: 5px;
+  -webkit-animation: bounce-up 1s linear infinite;
+  animation: bounce-up 1s linear infinite;
+}
 .nextIcon
 {
-	transform: rotate(270deg);
+  transform: rotate(270deg);
 }
+
+@-webkit-keyframes bounce-up {
+  25% {-webkit-transform: translateX(2px);}
+  50%, 100% {-webkit-transform: translateX(0);}
+  75% {-webkit-transform: translateX(-3px);}
+ }
+ 
+ @keyframes bounce-up {
+  25% {transform: translateX(2px);}
+  50%, 100% {transform: translateX(0);}
+  75% {transform: translateX(-2px);}
+ }
+
 
 .copyRight
 {

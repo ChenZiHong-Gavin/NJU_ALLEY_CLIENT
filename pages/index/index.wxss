@@ -20,3 +20,21 @@ margin: auto;
 left: 0;
 right: 0;
 }
+
+.flag-icon
+{
+animation: turnZ linear infinite;
+animation-duration:3s;
+}
+
+/* 旋转动画 */
+@keyframes turnZ{
+
+  0%{transform:rotateZ(0deg);}
+
+  50%{transform:rotateZ(270deg);}
+
+  100%{transform:rotateZ(360deg);}
+
+}
+

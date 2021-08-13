@@ -76,6 +76,7 @@
   transform: rotate(270deg);
 }
 
+/* 左右移动的动画 */
 @-webkit-keyframes bounce-up {
   25% {-webkit-transform: translateX(2px);}
   50%, 100% {-webkit-transform: translateX(0);}

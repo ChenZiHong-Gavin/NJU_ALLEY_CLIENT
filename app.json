@@ -8,6 +8,7 @@
     "van-swipe-cell": "vant-weapp/dist/swipe-cell/index"
   },
   "pages":[
+    "pages/review-success/review-success",
     "pages/white/white",
     "pages/index/index",
     "pages/welcome/welcome",
@@ -17,6 +18,7 @@
     "pages/review/review",
     "pages/user/user",
     "pages/conversation/conversation",
+
     "pages/logs/logs"
   ],
   "permission": {

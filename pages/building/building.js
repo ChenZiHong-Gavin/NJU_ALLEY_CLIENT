@@ -13,7 +13,8 @@ Page({
     archId:0,
     picture:"",
     building_name:"",
-    intro_text:""
+    intro_text:"",
+    intro_rate:""
   },
 
   /**
@@ -94,6 +95,14 @@ Page({
     wx.navigateTo({
    
       url: '../review/review',
+       
+      })
+  },
+
+  onBindConversationTap: function () {
+    wx.navigateTo({
+   
+      url: '../conversation/conversation',
        
       })
   }

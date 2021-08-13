@@ -3,6 +3,10 @@
 <image class="intro_pic" src="{{picture}}" mode="center"></image>
 <text class="building_name">{{building_name}}</text>
 <text class="intro_text">{{intro_text}}</text>
+<text class="intro_rate">评分：{{intro_rate}}</text>
+<view class="conversation" bindtap='onBindConversationTap'>
+<van-icon  name="comment-o" />
+</view>
 <view bindtap='onBindReviewTap' class="marker_btn">
   <button style="background-color:#007aff;color:white;width:400rpx" >点评</button>
 </view>

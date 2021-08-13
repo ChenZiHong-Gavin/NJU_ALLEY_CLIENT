@@ -6,13 +6,14 @@ info:
   version: 1.0.0
 
 servers:
-  - url: 'https://<czh-domain>:<port>/api'
+  - url: 'https://www.chenzihong.cn/api'
 
 tags:
   - name: arch
   - name: user
   - name: comment
   - name: notice
+  - name: oss
 
 paths:
   /arch/view/{archId}:
@@ -234,6 +235,41 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/CommentVO"
+  /user/comment/is_like/{userId}:
+    get:
+      tags:
+        - user
+      summary: 获取用户是否已经点赞某评论
+      description: 通过 userId commentId 判断用户是否已经点赞评论
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: 用户 id
+          schema:
+            type: integer
+        - name: commentId
+          in: query
+          required: true
+          description: comment id
+          schema:
+            type: integer
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/LikeVO"
   /user/notices/{userId}:
     get:
       tags:
@@ -345,7 +381,7 @@ paths:
                   data:
                     $ref: "#/components/schemas/CommentVO"
 
-  /notice/view/{noticeId}:
+  /notice/read/{noticeId}:
     post:
       tags:
         - notice
@@ -365,6 +401,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ResponseVO"
+
+  /oss/policy:
+    get:
+      tags:
+        - oss
+      summary: 阿里云 oss 获取协议接口
+      description: 通过此 api 获取协议
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/OSSPolicyVO"
 
 components:
   schemas:
@@ -396,14 +453,8 @@ components:
           type: string
           description: 建筑描述
         score:
-          type: integer
-          description: 建筑评分，只有五种选择
-          enum:
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
+          type: number
+          description: 建筑评分，这里取所有用户评分平均值，保留 1 位小数
         longitude:
           type: string
           description: 经度，使用 string 是为了避免精度失真
@@ -445,6 +496,9 @@ components:
         fatherId:
           type: integer
           description: 父评论 id，如果没有父评论则为 -1
+        userId:
+          type: integer
+          description: 发表者 id
         likeNum:
           type: integer
           description: 点赞数
@@ -452,9 +506,9 @@ components:
           type: string
           format: date-time
           description: 创建时间
-        isLike:
-          type: boolean
-          description: 用户是否点赞
+        picture:
+          type: string
+          description: 评论附图 url，如果没有则返回 -2
         children:
           type: array
           description: 子评论，递归引用 openapi 显示不出来
@@ -492,6 +546,9 @@ components:
         senderId:
           type: integer
           description: 发送通知的用户的 id
+        userId:
+          type: integer
+          description: 被通知者的用户 id，也是 comment 的创建者
         commentId:
           type: integer
           description: 原评论 id
@@ -501,6 +558,41 @@ components:
         isUnread:
           type: boolean
           description: 是否未读
+    OSSPolicyVO:
+      type: object
+      description: 阿里云 oss 服务，返回 policy 的接口
+      properties:
+        accessKeyId:
+          type: string
+          description: 访问身份验证中用到用户标识
+        policy:
+          type: string
+          description: 用户表单上传的策略，经过 base64 编码过的字符串
+        signature:
+          type: string
+          description: 对 policy 签名后的字符串
+        dir:
+          type: string
+          description: 上传文件夹路径前缀
+        host:
+          type: string
+          description: oss 对外服务的访问域名
+        callback:
+          type: string
+          description: 上传成功后的回调设置
+    LikeVO:
+      type: object
+      description: 表示用户是否点赞某评论
+      properties:
+        userId:
+          type: integer
+          description: 用户 id
+        commentId:
+          type: integer
+          description: 评论 id
+        isLike:
+          type: boolean
+          description: 是否点赞
 
     ArchCommentDTO:
       type: object
@@ -515,6 +607,9 @@ components:
         content:
           type: string
           description: 评论内容
+        picture:
+          type: string
+          description: 评论附图，最多只可以有一张，如果没有传 -2
     UserLoginDTO:
       type: object
       description: 用户登录的必要信息
@@ -560,5 +655,8 @@ components:
         content:
           type: string
           description: 评论内容
+        picture:
+          type: string
+          description: 评论附图，最多只可以有一张，如果没有传 -2
 
 

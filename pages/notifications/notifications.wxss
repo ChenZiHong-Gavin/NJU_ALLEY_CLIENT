@@ -1,0 +1,98 @@
+/* pages/notifications/notifications.wxss */
+page{
+  height:100%;
+  width:100%;
+}
+.container{
+  height:20px;
+  font-size: xx-large;
+  font-weight: 900;
+  background: #3EB575;
+}
+.notification-content
+{
+  margin-left: -100px;
+  color: white;
+  display:flex;
+  flex-direction: column;
+}
+
+.back{
+  margin-left:-260px;
+  margin-top:-20px;
+}
+
+.small_content{
+  margin-top:30px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.delete{
+  margin-left: 230px;
+  margin-top:20px;
+}
+
+.title_content{
+  display: flex;
+  flex-direction: row;
+}
+.system_notice_icon{
+  margin-top:10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.system_notice{
+  display: flex;
+  flex-direction: column;
+  margin-top:10px;
+  margin-left: 40px;
+}
+
+.system_content{
+  margin-top:10px;
+  width:300px;
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+
+}
+
+.system{
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.sender_avatar{
+  border-radius: 20%;
+  height:40px;
+  width:40px;
+  margin-top:10px;
+  margin-left: 3px;
+  margin-bottom: 10px;
+}
+
+.sender_notice{
+  display: flex;
+  flex-direction: column;
+  margin-top:10px;
+  margin-left: 38px;
+}
+
+.swipe_delete{
+  background-color: red;
+  font-size: 20px;
+  display:flex;
+  width:100%;
+  height:100%;
+  
+}
+
+.swipe_text{
+  color:white;
+  margin-top:28px;
+  margin-left: 15px;
+  margin-right:15px;
+}

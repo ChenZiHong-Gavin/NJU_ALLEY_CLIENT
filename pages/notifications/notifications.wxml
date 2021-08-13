@@ -1,0 +1,55 @@
+<!--pages/notifications/notifications.wxml-->
+<div class="container">
+    <view class="notification-content">
+      <van-icon name="arrow-left" bindtap='onBindBackTap' class="back" />
+      <view class="small_content">
+        <view class="prompt_text">
+      <text >通知</text>
+    </view>
+      <van-icon name="delete-o" bindtap="onBindDeleteTap" class="delete" />
+    </view>
+    </view>
+</div>
+<div class="notifications">
+  <van-transition 
+  show="{{ show }}" 
+  custom-class="block"  
+  name="fade-left"
+  duration="{{ { enter: 0, leave: 1000 } }}"
+  bind:after-leave="onBindUpdataTap">
+    <van-cell-group insert>
+      <view wx:for="{{notification_list}}" wx:key="noticeId">
+        <!--系统通知-->
+        <van-swipe-cell right-width="{{65}}" async-close bind:close="onDeleteNotice" data-index="{{item.noticeId}}">
+        <van-cell wx:if="{{item.senderId==1}}" size="large" >
+          <view slot="title" class="title_content">
+            <van-icon name="volume-o" size="30px" class="system_notice_icon"/>
+            <view class="system_notice">
+              <text class="system">系统</text>
+              <text class="system_content">{{item.content}}</text>
+            </view>
+          </view>
+          </van-cell>
+        <view slot="right" class="swipe_delete">
+          <text class="swipe_text">删除</text>
+        </view>
+      </van-swipe-cell>
+        <!--用户回复-->
+        <van-swipe-cell right-width="{{65}}" async-close bind:close="onDeleteNotice" data-index="{{item.noticeId}}">
+        <van-cell wx:if="{{item.senderId!=1}}" size="large">
+          <view slot="title" class="title_content">
+            <image src="{{item.senderAvatar}}" class="sender_avatar"></image>
+            <view class="sender_notice">
+              <text class="system">{{item.senderName}}</text>
+              <text class="system_content">{{item.content}}</text>
+            </view>
+          </view>
+        </van-cell>
+        <view slot="right" class="swipe_delete">
+          <text class="swipe_text">删除</text>
+        </view>
+      </van-swipe-cell>
+      </view>
+    </van-cell-group>
+ </van-transition>
+</div>

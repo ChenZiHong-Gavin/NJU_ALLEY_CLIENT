@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-swipe-cell": "../../vant-weapp/dist/swipe-cell",
+    "van-transition": "../../vant-weapp/dist/transition"
+  }
+}

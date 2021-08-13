@@ -1,14 +1,13 @@
 {
   "usingComponents": {
     "van-button": "vant-weapp/dist/button/index",
-    "van-icon":"vant-weapp/dist/icon/index",
-    "van-cell":"vant-weapp/dist/cell/index",
-    "van-rate":"vant-weapp/dist/rate/index",
-    "van-card":"vant-weapp/dist/card/index",
+    "van-icon": "vant-weapp/dist/icon/index",
+    "van-cell": "vant-weapp/dist/cell/index",
+    "van-rate": "vant-weapp/dist/rate/index",
+    "van-card": "vant-weapp/dist/card/index",
     "van-swipe-cell": "vant-weapp/dist/swipe-cell/index"
   },
   "pages":[
-    "pages/review-success/review-success",
     "pages/white/white",
     "pages/index/index",
     "pages/welcome/welcome",
@@ -18,17 +17,17 @@
     "pages/review/review",
     "pages/user/user",
     "pages/conversation/conversation",
-
-    "pages/logs/logs"
+    "pages/review-success/review-success",
+    "pages/logs/logs",
+    "pages/notifications/notifications"
   ],
-  "permission": {
-  },
-  "window":{
-    "backgroundTextStyle":"light",
+  "permission": {},
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3EB575",
     "navigationStyle": "custom",
     "navigationBarTitleText": "南大巷子",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

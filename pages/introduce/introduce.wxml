@@ -6,12 +6,12 @@
 <!-- indicator-dots是面板指示点 -->
 <swiper class="swiper_container"  circular indicator-dots autoplay interval="3000">
           <swiper-item>
-          <image class="pre-image" src="../../static/state1.png" mode="heightFix"></image>
+          <image class="pre-image" src="../../static/image/introduce/state1.png" mode="heightFix"></image>
           <view class="swiper-text">“鸿鹄志”社会实践团队</view>
           </swiper-item>
           <swiper-item>
           <image class="pre-image" src="../../static/image/introduce/state2.jpg" mode="heightFix"></image>
-          <view class="swiper-text">刻师傅牛杂摊</view>
+          <view class="swiper-text">“刻师傅牛杂摊”软件开发团队</view>
           </swiper-item> 
 </swiper>
 

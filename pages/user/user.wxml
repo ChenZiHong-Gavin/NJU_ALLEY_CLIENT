@@ -2,6 +2,7 @@
 
 <view class="settings">
 <view class="settings-content">
+<!-- 返回 -->
 <van-icon name="arrow-left" bindtap='onBindBackTap' />
 <text>
   设置

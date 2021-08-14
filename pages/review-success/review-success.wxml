@@ -1,19 +1,15 @@
-<!--pages/review-success/review-success.wxml-->
-<!-- 评论后的成功界面 -->
 
-
-<view class="modal">
-  <view class="modal_view">
-    <view class="goodinfo">
-      <view><image src="../../static/image/box/success.png"></image></view>
-      <view class="success-word">
-      点评成功
-      </view>
+<view class="container" >
+  <view class="card">
+    <view>
+    <view class="loader">
     </view>
-    <view class="box_head"><image src="../../static/image/box/box_head.png" 
-style="width:268rpx" mode="widthFix"></image></view>
-    <view class="box_body"><image src="../../static/image/box/box_body.png" 
-style="width:268rpx" mode="widthFix"></image></view>
-  </view>
-  <view class="modal_close" bindtap="closeModal">×</view>
-</view>
+    <view>
+    <text>点评成功</text>
+    </view>
+    </view>
+    </view>
+    <view class="return_btn" bindtap="onBindReturnTap">
+      <button style="background-color:#007aff;color:white;width:400rpx;">返回</button>
+    </view>
+    </view>

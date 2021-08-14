@@ -5,9 +5,18 @@
  front-color="#fffff"
  />
 </page-meta> -->
-<text class="title" >点评</text>
-<div class="container" >
-  <div class="card">
+<!-- 返回 -->
+<view class="title">
+<view class="title-icon">
+  <van-icon name="arrow-left" bindtap='onBindBackTap' />
+</view>
+<view class="title-word">
+<text>点评</text>
+</view>
+</view>
+
+<view class="container" >
+  <view class="card">
     <view class="name">{{user_name}}</view>
     <view class="prompt">你对{{building_name}}有什么看法?</view>
     <view  class="mark_stars">
@@ -20,7 +29,7 @@
         bind:change="onChange"
       />
     </view>
-    <div class="mark_text">
+    <view class="mark_text">
       <view class="mark_text_input">
         <textarea 
         value="{{mark_text_value}}" 
@@ -30,9 +39,9 @@
         name="textarea"
         > </textarea>
       </view>
-    </div>
+    </view>
     <view class="submit_btn" bindtap="onSubmitMarkTap">
       <button style="background-color:#007aff;color:white;width:400rpx;">提交</button>
     </view>
-  </div>
-</div>
+  </view>
+</view>

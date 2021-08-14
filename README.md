@@ -1,8 +1,16 @@
 # 🌟加一个星星
 
-1. 注册腾讯移动分析账号
 
-   草 ![img](https://pic4.zhimg.com/v2-a5f8ba801fa3b30bd20cc2389c0628c7_b.jpg)
+
+:tanabata_tree:一些尝试的过程
+
+1. 腾讯移动分析服务
+
+   腾讯因为收益太少于2020年9月25日给它下架了。
+
+2. 
+
+草 ![img](https://pic4.zhimg.com/v2-a5f8ba801fa3b30bd20cc2389c0628c7_b.jpg)
 
 2. 企业认证
 
@@ -153,5 +161,5 @@ web-view是承载网页的容器
 
 9. 获取用户发表的所有评论
 
-   
+   放在地图页面
 

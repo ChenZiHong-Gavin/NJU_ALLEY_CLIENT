@@ -92,5 +92,20 @@ Page({
    */
   onSubmitMarkTap(){
      // console.log(this.data.mark_text_value)
+     wx.navigateTo({
+   
+      url: '../review-success/review-success',
+       
+      })
+  
+  },
+
+  // 返回地图
+  onBindBackTap(){
+    wx.navigateTo({
+   
+      url: '../map/map',
+       
+      })
   }
 })

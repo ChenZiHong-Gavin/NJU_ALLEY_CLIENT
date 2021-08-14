@@ -1,3 +1,65 @@
-<!--pages/conversation/conversation.wxml-->
-<text>pages/conversation/conversation.wxml</text>
-<text>这里是建筑的讨论区</text>
+
+<scroll-view class="all">
+<view class="header">
+<view class="tag">
+  <view wx:if="{{label=='反馈'}}">
+    <van-tag type="danger">{{label}}</van-tag>
+  </view>
+  <view wx:if="{{label=='随笔'}}">
+    <van-tag type="primary">{{label}}</van-tag>
+  </view>
+  <view wx:if="{{label=='通知'}}">
+    <van-tag type="warning">{{label}}</van-tag>
+  </view>
+</view>
+<view class="title">
+  <text>{{title}}</text>
+</view>
+</view>
+<div class="author" bindtap="toOthers1">
+  <view class="avatar"><image src="{{avatarUrl}}" mode="widthFix"></image></view><view class="nickname">{{nickName}}</view>
+</div>
+<view class="timeStamp">{{timeStamp}}</view>
+
+<view class="content">
+  <p>{{content}}</p>
+  <view class="postimg" wx:if="{{hasPicture}}" ><image src="{{pictureUrl}}" mode="aspectFit" bindtap="showBig"></image>
+  </view>
+  <!-- <view class="postimg"><image src="{{https://nju-alley.oss-cn-beijing.aliyuncs.com/0.jpg}}" mode="widthFix"></image></view> -->
+</view>
+
+<view class="bts">
+  <button bindtap="goodJob" class="goodButton" >
+    <van-icon name="good-job" color="{{color1}}" class="goodIcon" ></van-icon>
+    <view class="goodText">{{likeNum}}</view>
+  </button> 
+  <button  bindtap="chatTo" class="chatButton">
+    <van-icon name="chat" class="chatIcon" ></van-icon>
+    <view class="chatText">{{chatNum}}</view>
+  </button>
+  <button bindtap="shareTo" class="shareButton" open-type="share">
+    <van-icon name="share" class="shareIcon"></van-icon>
+    <view class="shareText" >{{shareNum}}</view>
+</button>
+</view>
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 20%;"    bind:close="onClose">
+  <van-field model:value="{{commentContent}}" placeholder="请输入评论" clearable="true" type="textarea" size="large" bind:change="inputComment" autosize></van-field>
+  <button bindtap="shareComment" class="shareComment" form-type="submit" >发布</button>
+</van-popup>
+
+<van-cell-group>
+  <scroll-view scroll-y="true"  style="height:800rpx">
+    <van-cell wx:for="{{comments}}" wx:key="commentID" wx:for-item="comment" size="large" use-label-slot="true">
+      <view slot="title" class="commentTitle">
+        <view class="commentUser" data-userId="{{comment.commentUserId}}" bindtap="toOthers">
+          <image class="commentAvatar" src="{{comment.commentAvatar}}"></image>
+          <view class="commentNickname">{{comment.commentNickname}}</view>
+        </view>
+        <view class="commentTimeStamp">{{comment.commentTimeStamp}}</view>
+      </view>
+      <view slot="label" class="commentContent">{{comment.commentContent}}</view>
+    </van-cell>
+  </scroll-view>
+</van-cell-group>
+</scroll-view>
+

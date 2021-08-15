@@ -68,6 +68,46 @@ class Arch extends Request{
   //   })
 
   }
+
+  /**
+   * 评论建筑
+   */
+  commentBuilding(options){
+    return new Promise((resolve,reject)=>{
+      let props = {
+        url:`/api/comment`,
+        data:options,
+        type:"POST",
+        sCallBack:res=>{
+          resolve(res)
+        },
+        eCallBack:res=>{
+          reject(res)
+        }
+      }
+      this.request(props)
+    })
+  }
+
+  /**
+   * 对建筑评分
+   */
+  getBuildingDetail(options){
+    return new Promise((resolve,reject)=>{
+      let props = {
+        url:`/api/arch/mark/${options.archId}?score=${options.score}`,
+        data:options.data,
+        type:"POST",
+        sCallBack:res=>{
+          resolve(res)
+        },
+        eCallBack:res=>{
+          reject(res)
+        }
+      }
+      this.request(props)
+    })
+  }
   
 }
 export {Arch}

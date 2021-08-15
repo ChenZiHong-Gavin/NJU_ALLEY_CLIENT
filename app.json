@@ -13,8 +13,9 @@
   },
   "pages":[
    
-    "pages/building/building",
     "pages/white/white",
+    "pages/building/building",
+    
     "pages/user/user",
     "pages/review/review",
     "pages/notifications/notifications",

@@ -3,10 +3,12 @@
 <view class="settings">
 <view class="settings-content">
 <!-- 返回 -->
-<van-icon name="arrow-left" bindtap='onBindBackTap' />
-<text>
-  设置
-</text>
+<view class="title-icon">
+  <van-icon name="arrow-left" bindtap='onBindBackTap' />
+</view>
+<view class="title-word">
+<text>设置</text>
+</view>
 </view>
 </view>
 

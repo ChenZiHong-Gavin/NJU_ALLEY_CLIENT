@@ -15,8 +15,8 @@
       <open-data type="userNickName"></open-data>
     </block>
     <block wx:elif="{{!hasUserInfo}}">
-      <van-button color="#3E7EB6" primary class="begin" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 
-        开始探索 
+      <van-button color="#4CE5B1" plain class="begin" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 
+        Start
         <van-icon class="flag-icon" name="flag-o" />
       </van-button>
       <view wx:else> 请使用1.4.4及以上版本基础库 </view>

@@ -16,14 +16,19 @@ page
     border-radius: 5%;
   }
 
+  .loader-container
+  {
+      margin-top: 50px;
+  }
+
   .loader
   {
       position: relative;
-      width:80px;
-      height:80px;
+      width:160px;
+      height:160px;
       /* 画一个圆 */
       border-radius: 50%;
-      border: 8px solid rgba(165, 220, 134, 0.2);
+      border: 16px solid rgba(165, 220, 134, 0.2);
       border-left-color: #A5DC86;
       animation: animation_collect 1s linear 1 both;
   }
@@ -55,8 +60,8 @@ page
       position: absolute;
       content: '';
       top: 50%;
-      left: 15px;
-      border: 4px solid #A5DC86;
+      left: 35%;
+      border: 16px solid #A5DC86;
       border-left-width: 0;
       border-bottom-width: 0;
       transform: scaleX(-1) rotate(135deg);

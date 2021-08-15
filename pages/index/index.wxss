@@ -1,9 +1,9 @@
 /**index.wxss**/
 
-page
+/* page
 {
   background:#3EB575;
-}
+} */
 
 .title
 {

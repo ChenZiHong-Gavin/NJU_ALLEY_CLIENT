@@ -9,17 +9,17 @@
     "van-share-sheet": "vant-weapp/dist/share-sheet/index"
   },
   "pages":[
-    "pages/review-success/review-success",
     "pages/white/white",
+    "pages/user/user",
+
     "pages/conversation/conversation",
     "pages/building/building",
     "pages/index/index",
     "pages/welcome/welcome",
     "pages/introduce/introduce",
+    "pages/review-success/review-success",
     "pages/map/map",
     "pages/review/review",
-    
-    "pages/user/user",
     "pages/notifications/notifications",
     "pages/logs/logs"
   ],

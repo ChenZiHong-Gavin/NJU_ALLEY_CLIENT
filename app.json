@@ -6,12 +6,16 @@
     "van-rate": "vant-weapp/dist/rate/index",
     "van-card": "vant-weapp/dist/card/index",
     "van-swipe-cell": "vant-weapp/dist/swipe-cell/index",
-    "van-share-sheet": "vant-weapp/dist/share-sheet/index"
+    "van-share-sheet": "vant-weapp/dist/share-sheet/index",
+    "van-overlay": "vant-weapp/dist/overlay/index",
+    "van-collapse": "vant-weapp/dist/collapse/index",
+  "van-collapse-item": "vant-weapp/dist/collapse-item/index"
   },
   "pages":[
-    "pages/white/white",
+    
     "pages/user/user",
-
+    "pages/white/white",
+    "pages/notifications/notifications",
     "pages/conversation/conversation",
     "pages/building/building",
     "pages/index/index",
@@ -20,7 +24,7 @@
     "pages/review-success/review-success",
     "pages/map/map",
     "pages/review/review",
-    "pages/notifications/notifications",
+    
     "pages/logs/logs"
   ],
   "permission": {},

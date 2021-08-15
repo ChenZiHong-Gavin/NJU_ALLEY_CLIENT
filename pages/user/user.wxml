@@ -23,9 +23,18 @@
 <!-- cell-group提供上下边框 -->
 <!-- inset使得cell变成卡片类型 -->
   <van-cell-group inset>
-<van-cell title="通知"   icon="chat-o">
+<van-cell title="通知"   icon="chat-o" bindtap='onBindNotifictionTap'>
 </van-cell>
-<van-cell title="使用条款与权限" is-link  icon="records" />
+<van-cell title="使用条款与权限" is-link  icon="records" bind:click="onClickShow" />
+
+<!-- 遮罩层 -->
+<van-overlay show="{{ showRight }}" bind:click="onClickHide">
+  <view class="wrapper">
+    <view catch:tap="noop" />
+    <image src="../../static/image/right/right.jpg" mode="widthFix"></image>
+  </view>
+</van-overlay>
+
 <!-- 要设置两倍宽度 -->
 <van-swipe-cell right-width="{{ 130 }}" >
   <van-cell-group>
@@ -37,14 +46,30 @@
   </view>
 </van-swipe-cell>
 
-<van-cell title="联系我们" is-link  icon="envelop-o"/>
-<van-cell title="分享" bind:click="onClick"  icon="share-o"/>
+
+<!-- 下拉联系方式 -->
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item class="contactUs" title="联系我们" name="1" icon="envelop-o">
+    微信:
+    微博：
+    QQ：
+    Github:
+  </van-collapse-item>
+</van-collapse>
+
+
+<van-cell title="分享" bind:click="onShareClick" icon="share-o"/>
+
+
+
+<van-cell title="致谢" icon="medal-o"/>
+
 <van-share-sheet
   show="{{ showShare }}"
   title="立即分享给好友"
   options="{{ options }}"
-  bind:select="onSelect"
-  bind:close="onClose"
+  bind:select="onShareSelect"
+  bind:close="onShareClose"
 />
 
 <van-cell title-class="cell-title" title="退出"  />

@@ -59,3 +59,17 @@ border-radius: 50% !important;
   text-align: center;
   background-color: rgb(0, 255, 13);
 }
+
+/* 遮罩层 */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* 文本保留换行和空格 */
+.contactUs
+{
+  white-space:pre-wrap
+}

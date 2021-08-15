@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
    data: {
-     userInfo:null,
+    userInfo:null,
+    showRight: false,
     showShare: false,
     options: [
       [
@@ -21,38 +22,8 @@ Page({
         { name: '二维码', icon: 'qrcode' },
       ],
     ],
+    activeNames: ""
   },
-   data: {
-    showShare: false,
-    options: [
-      [
-        { name: '微信', icon: 'wechat' },
-        { name: '微博', icon: 'weibo' },
-        { name: 'QQ', icon: 'qq' },
-      ],
-      [
-        { name: '复制链接', icon: 'link' },
-        { name: '分享海报', icon: 'poster' },
-        { name: '二维码', icon: 'qrcode' },
-      ],
-    ],
-  },
-   data: {
-    showShare: false,
-    options: [
-      [
-        { name: '微信', icon: 'wechat' },
-        { name: '微博', icon: 'weibo' },
-        { name: 'QQ', icon: 'qq' },
-      ],
-      [
-        { name: '复制链接', icon: 'link' },
-        { name: '分享海报', icon: 'poster' },
-        { name: '二维码', icon: 'qrcode' },
-      ],
-    ],
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -124,16 +95,44 @@ Page({
      
     })
   },
-  onClick(event) {
+  onShareClick(event) {
     this.setData({ showShare: true });
   },
 
-  onClose(event) {
+  onShareClose(event) {
     this.setData({ showShare: false });
   },
 
-  onSelect(event) {
+  onShareSelect(event) {
     Toast(event.detail.name);
     this.onClose();
-  }
+  },
+
+  // 前往通知页面
+  onBindNotifictionTap: function()
+  {
+    wx.navigateTo({
+     
+      url: '../notifications/notifications',
+       
+      })
+  },
+
+  //控制使用条款遮罩层的两个方法
+  onClickShow() {
+    this.setData({ showRight: true });
+  },
+
+  onClickHide() {
+    this.setData({ showRight: false });
+  },
+
+  noop() {},
+
+  // 折叠面板的方法
+  onChange(event) {
+    this.setData({
+      activeNames: event.detail,
+    });
+  },
 })

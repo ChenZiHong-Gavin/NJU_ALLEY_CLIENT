@@ -88,6 +88,10 @@ Page({
    */
   onBindBackTap(){
 
+    wx.navigateTo({
+      url: '../user/user',
+    })
+
   },
 
 
@@ -134,4 +138,6 @@ Page({
 
 
   }
+
+  
 })

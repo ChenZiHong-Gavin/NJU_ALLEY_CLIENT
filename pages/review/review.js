@@ -1,10 +1,18 @@
 // pages/review/review.js
+
+import {Arch} from '../../model/arch'
+
+const archApi = new Arch()
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    archId:0,
     value: 0,
     user_name:"",
     building_name:"",
@@ -19,6 +27,12 @@ Page({
     that.setData({
       user_name:"小明",
       building_name:"大活"
+    })
+
+    let archId = options.archId;
+    console.log("review-archId: " + archId);
+    that.setData({
+      archId:archId
     })
     
   },
@@ -92,6 +106,17 @@ Page({
    */
   onSubmitMarkTap(){
      // console.log(this.data.mark_text_value)
+
+     let commentDTO = {
+       archId:this.data.archId,
+       userId:app.globalData.userId,
+       content:this.data.mark_text_value,
+       picture:""
+     }
+     //console.log(commentDTO)
+     archApi.commentBuilding(commentDTO);
+     archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:app.globalData.userId});
+
      wx.navigateTo({
    
       url: '../review-success/review-success',

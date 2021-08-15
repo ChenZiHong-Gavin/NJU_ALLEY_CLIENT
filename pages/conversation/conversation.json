@@ -1,4 +1,6 @@
 {
   "usingComponents": {
+    "van-divider": "../../vant-weapp/dist/divider/index",
+    "van-field": "../../vant-weapp/dist/field"
   }
 }

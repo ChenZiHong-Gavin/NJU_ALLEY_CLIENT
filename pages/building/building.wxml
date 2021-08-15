@@ -1,14 +1,35 @@
 <!--pages/building/building.wxml-->
-<div class="container" >
-<image class="intro_pic" src="{{picture}}" mode="center"></image>
+
+<view class="title">
+<view class="title-icon">
+  <van-icon name="arrow-left" bindtap='onBindBackTap' />
+</view>
+<view class="title-word">
+<text>查看空间</text>
+</view>
+</view>
+
+
+<view class="container" >
+<image class="intro_pic" src="{{picture}}" mode="scaleToFill" bindtap='clickImg'></image>
+
 <text class="building_name">{{building_name}}</text>
-<text class="intro_text">{{intro_text}}</text>
+
+<view>
+<van-icon name="star" color="yellow" />
 <text class="intro_rate">评分：{{intro_rate}}</text>
+</view>
+
+<view class="card">
+  <text class="intro_text">{{intro_text}}</text>
+</view>
+
+
 <view class="conversation" bindtap='onBindConversationTap'>
-  <van-icon  name="comment-o" />
-  <text>查看讨论区</text>
+  <van-icon  name="comment-o"   />
+  <text>讨论区</text>
 </view>
 <view bindtap='onBindReviewTap' class="marker_btn">
   <button style="background-color:#007aff;color:white;width:400rpx" >点评</button>
 </view>
-</div>
+</view>

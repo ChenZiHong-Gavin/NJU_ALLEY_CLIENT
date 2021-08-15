@@ -4,32 +4,63 @@ page{
   height: 100%;
 }
 
+.title{
+  font-size: x-large;
+  color:white;
+  margin-top: 50px;
+ }
+ .title-icon
+ {
+   /* 用于使返回按钮和文字处于同一行 */
+   position: absolute;
+   margin-left: 20px;
+   text-align: left;
+ }
+ 
+ .title-word
+ {
+   text-align: center;
+ }
+
+
 .container{
   display: flex;
   flex-direction: column;
 
 }
+/* rpx是微信特有的响应式距离单位 */
 .intro_pic{
-  margin-top: 50rpx;
   border-radius: 50%;
-  width: 600rpx;
-  height: 600rpx;
+  width: 400rpx;
+  height: 400rpx;
+  margin-top: -100rpx;
 }
 
 .building_name{
   font-size: xx-large;
   font-weight: 900px;
 }
-.intro_text{
-  margin-top:-10px;
+
+.card
+{
+  background-color: white;
   width:80%;
-  font-size: 18px;
-  display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  /* 高度自适应 */
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5%;
+  text-align: left;
+}
+
+.intro_text{
+  width: 80%;
+  font-size: 14px;
+  display: inline-block;
+  margin: 20px;
+  color: grey;
+  
 }
 
 .marker_btn{

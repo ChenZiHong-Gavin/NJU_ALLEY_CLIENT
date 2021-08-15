@@ -1,10 +1,9 @@
 <!--index.wxml-->
 
-<view class="title">
-  <text>
-    南大小巷
-  </text>
-</view>
+
+
+
+<image class="background" src="../../static/image/background/background.png"></image>
 
 <view class="container">
   <view class="userinfo">

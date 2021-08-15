@@ -125,11 +125,11 @@ Page({
   
   },
 
-  // 返回地图
+  // 返回空间
   onBindBackTap(){
     wx.navigateTo({
    
-      url: '../map/map',
+      url: '../building/building',
        
       })
   }

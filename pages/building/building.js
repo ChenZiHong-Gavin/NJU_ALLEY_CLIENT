@@ -24,11 +24,12 @@ Page({
     var that= this;
     // 加载页面数据（封面等
     that.setData({
-      picture:"../../static/image/index/cover.png",
+      picture:"../../static/image/building/test.jpg",
       building_name:"炜华体育场",
-      intro_text:"伟华体育场是仙林校区最活跃的体育运动场，位于教学楼旁侧，是举办大型校内活动的专属地点"
+      intro_text:"伟华体育场是仙林校区最活跃的体育运动场，位于教学楼旁侧，是举办大型校内活动的专属地点,啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
     })
 
+<<<<<<< HEAD
     let archId = options.archId;
     console.log("building-archId: " + archId);
     that.setData({
@@ -42,6 +43,18 @@ Page({
         building_name:res.data.name
       })
     })
+=======
+    // let archId = options.archId;
+    // console.log("building-archId: " + archId);
+    // archApi.getBuildingDetail({archId:archId}).then(res =>{
+    //   that.setData({
+    //     archId:archId,
+    //     picture:res.data.pictures[0],
+    //     intro_text:res.data.des,
+    //     building_name:res.data.name
+    //   })
+    // })
+>>>>>>> 4f682e9b8d3df6cca630696d54ae11bb4fcf051e
 
   },
 
@@ -108,5 +121,22 @@ Page({
       url: '../conversation/conversation',
        
       })
-  }
+  },
+
+// 图片点击事件  
+clickImg: function(e){
+  // console.log(this.data)
+  var imgUrl = this.data.picture;
+  console.log(imgUrl)
+  wx.previewImage({
+    urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
+    current: '', // 当前显示图片的http链接，默认是第一个
+    // 回调函数
+    success: function (res) { },
+    // 预览失败的时候需要有提示
+    fail: function (res) { },
+    complete: function (res) { },
+  })
+}
+
 })

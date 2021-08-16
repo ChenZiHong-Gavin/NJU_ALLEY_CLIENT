@@ -23,11 +23,11 @@ Page({
   onLoad: function (options) {
     var that= this;
     // 加载页面数据（封面等
-    that.setData({
-      picture:"../../static/image/building/test.jpg",
-      building_name:"炜华体育场",
-      intro_text:"伟华体育场是仙林校区最活跃的体育运动场，位于教学楼旁侧，是举办大型校内活动的专属地点,啊啊啊啊啊啊"
-    })
+    // that.setData({
+    //   picture:"../../static/image/building/test.jpg",
+    //   building_name:"炜华体育场",
+    //   intro_text:"伟华体育场是仙林校区最活跃的体育运动场，位于教学楼旁侧，是举办大型校内活动的专属地点,啊啊啊啊啊啊"
+    // })
 
     let archId = options.archId;
     console.log("building-archId: " + archId);
@@ -39,6 +39,7 @@ Page({
       that.setData({
         picture:res.data.pictures[0],
         intro_text:res.data.des,
+        intro_rate:res.data.score,
         building_name:res.data.name
       })
     })

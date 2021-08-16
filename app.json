@@ -14,12 +14,12 @@
   },
   "pages":[
 
-    "pages/review/review",
-    "pages/building/building",
     "pages/white/white",
+    "pages/building/building",
+    
     "pages/review-success/review-success",
     "pages/map/map",
-    
+    "pages/review/review",
     "pages/user/user",
     
     "pages/notifications/notifications",

@@ -45,7 +45,26 @@
       </view>
     </view>
   </view>
-  <view class="submit_btn" bindtap="onSubmitMarkTap">
+  <view class="submit_btn" bindtap="onClickShow">
       <van-button round color="#007aff">提交</van-button>
     </view>
+
+    <!-- 遮罩层 -->
+<van-overlay show="{{ showSuccess }}" >
+  <view class="wrapper"  bindtap="onClickHide">
+    <view catch:tap="noop" />
+    <view class="loader-container">
+    <view class="loader">
+    </view>
+    <view class="loader-text">
+    <text>点评成功</text>
+    </view>
+    <view class="prompt-text">
+    <text>点击任意地方返回地图</text>
+    </view>
+    </view>
+  </view>
+</van-overlay>
+
+
 </view>

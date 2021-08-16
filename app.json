@@ -13,13 +13,14 @@
     "van-uploader": "vant-weapp/dist/uploader/index"
   },
   "pages":[
-
-    "pages/white/white",
-    "pages/building/building",
     
-    "pages/review-success/review-success",
-    "pages/map/map",
+    "pages/white/white",
+   
+    
     "pages/review/review",
+    "pages/building/building",
+    "pages/map/map",
+   
     "pages/user/user",
     
     "pages/notifications/notifications",

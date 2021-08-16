@@ -12,13 +12,10 @@ skew="40"
 scale="18"
 markers="{{markers}}"
 bindmarkertap="onMarkerTap">
-
 </map>
 
 <view class='userinfo' bindtap='onBindUserTap'>
   <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" 
 mode="cover"></image>
 </view>
-<!-- <view class='building-container' bindtap='onBindBuildingTap'>
-<text>红点</text>
-</view> -->
+

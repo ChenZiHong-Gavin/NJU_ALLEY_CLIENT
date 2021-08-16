@@ -17,7 +17,8 @@ Page({
     user_name:"",
     building_name:"",
     mark_text_value:"",
-    fileList:[]
+    fileList:[],
+    showSuccess:false
   },
 
   /**
@@ -110,12 +111,15 @@ Page({
 
      let commentDTO = {
        archId:this.data.archId,
+       // 没有父评论
+       fatherId:-1,
        userId:app.globalData.userId,
        content:this.data.mark_text_value,
-       picture:""
+       picture:this.data.fileList[0] | -2
      }
      //console.log(commentDTO)
      archApi.commentBuilding(commentDTO);
+     //评分
      archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:app.globalData.userId});
 
      wx.navigateTo({
@@ -150,5 +154,17 @@ Page({
         this.setData({ fileList });
       },
     });
-  }
+  },
+
+  //控制使用条款遮罩层的两个方法
+  onClickShow() {
+    this.setData({ showSuccess: true });
+  },
+
+  onClickHide() {
+    this.setData({ showSuccess: false });
+    wx.navigateTo({
+      url: '../map/map',
+    })
+  },
 })

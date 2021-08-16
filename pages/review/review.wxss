@@ -3,6 +3,7 @@ page{
   background: #3EB575;
   height: 100%;
   width:100%;
+  overflow: hidden;
 }
 
 .return
@@ -36,7 +37,7 @@ page{
 }
 
 .card{
-  margin-top: -20px;
+  margin-top: -40px;
   background-color: white;
   width:90%;
   height:95%;
@@ -59,8 +60,14 @@ page{
 .mark_stars{
   margin-top:50px;
 }
+
+.uploader
+{
+  margin-top: 20px;
+}
+
 .mark_text{
-  margin-top:80px;
+  margin-top: 20px;
   border:solid;
   border-width: 1px;
   border-color: gray;
@@ -72,5 +79,5 @@ page{
   margin-right:10px;
 }
 .submit_btn{
-  margin-top:80rpx;
+  bottom: 10px;
 }

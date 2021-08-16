@@ -29,6 +29,10 @@
         bind:change="onChange"
       />
     </view>
+
+    <van-uploader class="uploader" file-list="{{ fileList }}" bind:after-read="afterRead"  deletable="{{ true }}" preview-size="20px" max-count="1" />
+
+
     <view class="mark_text">
       <view class="mark_text_input">
         <textarea 
@@ -40,8 +44,8 @@
         > </textarea>
       </view>
     </view>
-    <view class="submit_btn" bindtap="onSubmitMarkTap">
-      <button style="background-color:#007aff;color:white;width:400rpx;">提交</button>
-    </view>
   </view>
+  <view class="submit_btn" bindtap="onSubmitMarkTap">
+      <van-button round color="#007aff">提交</van-button>
+    </view>
 </view>

@@ -73,3 +73,9 @@ border-radius: 50% !important;
 {
   white-space:pre-wrap
 }
+
+.nickName
+{
+  font-size: x-large;
+  font-weight: 900px;
+}

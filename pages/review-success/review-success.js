@@ -63,5 +63,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onBindReturnTap: function () {
+    wx.navigateTo({
+      url: '../map/map',
+    })
   }
 })

@@ -13,8 +13,9 @@
 </view>
 
 <view class="avatar-card">
-<van-card  thumb-class="avatar"
+<van-card  thumb-class="avatar" title-class="nickName" centered
   thumb="{{ userInfo.avatarUrl }}"
+  title="{{userInfo.nickName}}"
 />
 </view>
 
@@ -72,8 +73,9 @@
   bind:close="onShareClose"
 />
 
-<van-cell title-class="cell-title" title="退出"  />
+<van-cell>
+  <navigator class="cell-title" hover-class="navigator-hover" target="miniProgram" open-type='exit'>退出</navigator>
+</van-cell>
   </van-cell-group>
 
 </view>
-

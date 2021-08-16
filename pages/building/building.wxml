@@ -1,7 +1,7 @@
 <!--pages/building/building.wxml-->
 
 <view class="title">
-<view class="title-icon">
+<view class="title-icon" bindtap="onBindBackTap">
   <van-icon name="arrow-left" bindtap='onBindBackTap' />
 </view>
 <view class="title-word">
@@ -30,6 +30,6 @@
   <text>讨论区</text>
 </view>
 <view bindtap='onBindReviewTap' class="marker_btn">
-  <button style="background-color:#007aff;color:white;width:400rpx" >点评</button>
+  <van-button round color="#007aff" >点评</van-button>
 </view>
 </view>

@@ -9,23 +9,27 @@
     "van-share-sheet": "vant-weapp/dist/share-sheet/index",
     "van-overlay": "vant-weapp/dist/overlay/index",
     "van-collapse": "vant-weapp/dist/collapse/index",
-    "van-collapse-item": "vant-weapp/dist/collapse-item/index"
+    "van-collapse-item": "vant-weapp/dist/collapse-item/index",
+    "van-uploader": "vant-weapp/dist/uploader/index"
   },
   "pages":[
-   
-    "pages/white/white",
+
+    "pages/review/review",
     "pages/building/building",
+    "pages/white/white",
+    "pages/review-success/review-success",
+    "pages/map/map",
     
     "pages/user/user",
-    "pages/review/review",
+    
     "pages/notifications/notifications",
     "pages/conversation/conversation",
    
     "pages/index/index",
     "pages/welcome/welcome",
     "pages/introduce/introduce",
-    "pages/review-success/review-success",
-    "pages/map/map",
+    
+    
     
     
     "pages/logs/logs"

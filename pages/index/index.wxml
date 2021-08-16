@@ -23,7 +23,7 @@
       <open-data type="userNickName"></open-data>
     </block>
     <block wx:elif="{{!hasUserInfo}}">
-      <van-button color="#4CE5B1" plain class="begin" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 
+      <van-button color="#4CE5B1" round plain class="begin" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 
         Start
         <van-icon class="flag-icon" name="flag-o" />
       </van-button>

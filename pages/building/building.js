@@ -26,7 +26,7 @@ Page({
     that.setData({
       picture:"../../static/image/building/test.jpg",
       building_name:"炜华体育场",
-      intro_text:"伟华体育场是仙林校区最活跃的体育运动场，位于教学楼旁侧，是举办大型校内活动的专属地点,啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+      intro_text:"伟华体育场是仙林校区最活跃的体育运动场，位于教学楼旁侧，是举办大型校内活动的专属地点,啊啊啊啊啊啊"
     })
 
     let archId = options.archId;
@@ -123,6 +123,13 @@ clickImg: function(e){
     // 预览失败的时候需要有提示
     fail: function (res) { },
     complete: function (res) { },
+  })
+},
+
+onBindBackTap: function()
+{
+  wx.navigateTo({
+    url: '../map/map',
   })
 }
 

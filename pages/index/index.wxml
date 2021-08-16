@@ -5,6 +5,15 @@
 
 <image class="background" src="../../static/image/background/background.png"></image>
 
+<view class="logo">
+  <image class="logo-image" src="../../static/image/logo/logo.png" mode="scaleToFill"></image>
+</view>
+
+<view class="logo-text">
+<text class="text-content">南大小巷</text>
+</view>
+
+
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">

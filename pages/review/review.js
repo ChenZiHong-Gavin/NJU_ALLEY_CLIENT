@@ -1,4 +1,6 @@
 // pages/review/review.js
+// 通知组件
+import Notify from '../../vant-weapp/dist/notify/notify';
 
 import {Arch} from '../../model/arch'
 
@@ -107,6 +109,21 @@ Page({
    * 用户提交点评结果
    */
   onSubmitMarkTap(){
+
+    // 判断是否打了星级
+    if(this.data.value==0)
+    {
+      Notify("请给建筑打分");
+      return;
+    }
+
+    // 判断文本是否为空
+    if(this.data.mark_text_value=="")
+    {
+      Notify("请输入你的评论");
+      return;
+    }
+
      // console.log(this.data.mark_text_value)
 
      let commentDTO = {
@@ -117,16 +134,14 @@ Page({
        content:this.data.mark_text_value,
        picture:this.data.fileList[0] | -2
      }
-     //console.log(commentDTO)
-     archApi.commentBuilding(commentDTO);
-     //评分
+     // console.log(commentDTO)
+     archApi.commentBuilding(commentDTO).then(res =>{
+
+     })
+     // 评分
      archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:app.globalData.userId});
 
-     wx.navigateTo({
-   
-      url: '../review-success/review-success',
-       
-      })
+     this.onClickShow();
   
   },
 

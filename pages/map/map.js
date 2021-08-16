@@ -140,12 +140,5 @@ onMarkerTap: function (e) {
 
   },
 
-  // onBindBuildingTap: function () {
-  //   wx.navigateTo({
-   
-  //     url: '../building/building',
-       
-  //     })
-  // }
 
 })

@@ -45,7 +45,7 @@
       </view>
     </view>
   </view>
-  <view class="submit_btn" bindtap="onClickShow">
+  <view class="submit_btn" bindtap="onSubmitMarkTap">
       <van-button round color="#007aff">提交</van-button>
     </view>
 
@@ -68,3 +68,5 @@
 
 
 </view>
+
+<van-notify id="van-notify" />

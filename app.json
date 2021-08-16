@@ -10,14 +10,13 @@
     "van-overlay": "vant-weapp/dist/overlay/index",
     "van-collapse": "vant-weapp/dist/collapse/index",
     "van-collapse-item": "vant-weapp/dist/collapse-item/index",
-    "van-uploader": "vant-weapp/dist/uploader/index"
+    "van-uploader": "vant-weapp/dist/uploader/index",
+    "van-notify": "vant-weapp/dist/notify/index"
   },
   "pages":[
-    
-    "pages/white/white",
-   
-    
     "pages/review/review",
+    "pages/white/white",
+    
     "pages/building/building",
     "pages/map/map",
    

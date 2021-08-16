@@ -69,7 +69,7 @@ class Arch extends Request{
   commentBuilding(options){
     return new Promise((resolve,reject)=>{
       let props = {
-        url:`/api/comment`,
+        url:`/api/arch/comment`,
         data:options,
         type:"POST",
         sCallBack:res=>{

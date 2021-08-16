@@ -1,0 +1,56 @@
+<!--pages/conversation/conversation.wxml-->
+<view class="all">
+  <view wx:for="{{comment}}" wx:key="commentId" class="comment_content">
+      <view class="comment_user">
+        <image src="{{item.userAvatar}}" class="user_avatar" mode="center"></image>
+        <text class="user_name">{{item.userName}}</text>
+        <text class="create_time">{{item.createT}}</text>
+      </view>
+      <view class="content" bindtap="onReadMore" data-index="{{item.commentId}}">
+        <view wx:if="{{item.picture!='-2'}}">
+          <image src="{{item.picture}}" class="picture" mode="center"></image>
+        </view>
+      <view class="content_text">{{item.content}}</view>
+      </view>
+      <view class="data">
+        <button style="background-color:#0066ff1a" class="likeNum_btn" size="mini" bindtap="onLikeTap" data-index="{{item.commentId}}">
+          <van-icon name="good-job-o" color="#0066ff"/>
+          <text class="likeNum_text">赞同 {{item.likeNum}}</text>
+        </button>
+        <button size="mini" class="comment_btn" style="background-color:white" bindtap="onShowChildren" data-index="{{item.commentId}}">
+          <van-icon name="chat-o" />
+          <text class="comment_text">{{item.children.length}} 条评论</text>
+        </button>
+      </view>
+     <view wx:if="{{item.showChild}}" class="children">
+       <view wx:if="{{item.children.length > 0}}" >
+         <view wx:for="{{item.children}}" wx:key="commentId" wx:for-item="children">
+            <view class="comment_user">
+              <image src="{{children.userAvatar}}" class="user_avatar" mode="center"></image>
+              <text class="user_name">{{children.userName}}</text>
+              <text class="create_time">{{children.createT}}</text>
+            </view>
+        </view>
+         <van-divider />
+        </view>
+      <view class="input_line">
+      <van-field 
+      value="{{ value }}"
+      placeholder="写下你的评论"
+      bind:change="onChange"
+      use-button-slot
+      size="large"
+      class="input"
+      >
+      <button slot="button" style="background-color:white" size="mini">
+        <van-icon name="photo-o" /> 
+      </button>
+      </van-field>
+      <button size="mini" style="background-color:#add8e6;color:white" class="post" bindtap="onPostTap" data-index="{{item.commentId}}">
+        <text class="post_text">发布</text>
+      </button>
+      </view>
+     </view>
+      <van-divider class="divider"/>
+  </view>
+</view>

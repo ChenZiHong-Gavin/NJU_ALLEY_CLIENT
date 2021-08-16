@@ -92,10 +92,10 @@ class Arch extends Request{
   /**
    * 对建筑评分
    */
-  getBuildingDetail(options){
+  rateBuilding(options){
     return new Promise((resolve,reject)=>{
       let props = {
-        url:`/api/arch/mark/${options.archId}?score=${options.score}`,
+        url:`/api/arch/mark/${options.archId}?score=${options.score}?userId=${options.userId}`,
         data:options.data,
         type:"POST",
         sCallBack:res=>{

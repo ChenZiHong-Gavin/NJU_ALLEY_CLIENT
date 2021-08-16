@@ -23,6 +23,18 @@
           "pathName": "pages/review/review",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/white/white",
+          "pathName": "pages/white/white",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

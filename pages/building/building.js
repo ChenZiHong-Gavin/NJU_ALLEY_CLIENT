@@ -29,16 +29,19 @@ Page({
       intro_text:"伟华体育场是仙林校区最活跃的体育运动场，位于教学楼旁侧，是举办大型校内活动的专属地点,啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
     })
 
-    // let archId = options.archId;
-    // console.log("building-archId: " + archId);
-    // archApi.getBuildingDetail({archId:archId}).then(res =>{
-    //   that.setData({
-    //     archId:archId,
-    //     picture:res.data.pictures[0],
-    //     intro_text:res.data.des,
-    //     building_name:res.data.name
-    //   })
-    // })
+    let archId = options.archId;
+    console.log("building-archId: " + archId);
+    that.setData({
+      archId:archId
+    })
+    
+    archApi.getBuildingDetail({archId:archId}).then(res =>{
+      that.setData({
+        picture:res.data.pictures[0],
+        intro_text:res.data.des,
+        building_name:res.data.name
+      })
+    })
 
   },
 
@@ -93,8 +96,8 @@ Page({
 
   onBindReviewTap: function () {
     wx.navigateTo({
-   
-      url: '../review/review',
+
+      url: '../review/review?archId=' + this.data.archId,
        
       })
   },

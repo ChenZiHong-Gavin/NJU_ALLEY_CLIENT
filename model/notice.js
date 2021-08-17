@@ -7,7 +7,7 @@ class Notice extends Request{
   getNotices(options){
     // return new Promise((resolve,reject)=>{
     //   let props = {
-    //     url:`/usr/notices/${options.userId}`,
+    //     url:`/user/notices/${options.userId}`,
     //     data:options.data,
     //     type:"GET",
     //     sCallBack:res=>{

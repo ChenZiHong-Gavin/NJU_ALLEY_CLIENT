@@ -24,7 +24,7 @@ Page({
   onLoad: function (options) {
       var that= this;
     // 接收来自后端的数据
-      noticeApi.getNotices({userId:app.globalData.userInfo.userId}).then(res=>
+      noticeApi.getNotices({userId:app.globalData.userId}).then(res=>
         {
           that.setData(
             {

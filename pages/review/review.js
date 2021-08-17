@@ -126,16 +126,16 @@ Page({
 
      // console.log(this.data.mark_text_value)
 
-     let commentDTO = {
+     let ArchCommentDTO = {
        archId:this.data.archId,
        // 没有父评论
-       fatherId:-1,
+       //fatherId:-1,
        userId:app.globalData.userId,
        content:this.data.mark_text_value,
        picture:this.data.fileList[0] | -2
      }
-     console.log(commentDTO)
-     archApi.commentBuilding(commentDTO).then(res =>{
+     console.log(ArchCommentDTO)
+     archApi.commentBuilding(ArchCommentDTO).then(res =>{
 
      })
      // 评分

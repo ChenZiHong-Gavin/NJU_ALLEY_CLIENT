@@ -28,14 +28,18 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    that.setData({
-      user_name:"小明",
-      building_name:"大活"
-    })
 
+    // that.setData({
+    //   user_name:"小明",
+    //   building_name:"大活"
+    // })
+    
+    let building_name = options.building_name;
     let archId = options.archId;
     console.log("review-archId: " + archId);
     that.setData({
+      user_name:app.globalData.userInfo.nickName,
+      building_name:building_name,
       archId:archId
     })
     

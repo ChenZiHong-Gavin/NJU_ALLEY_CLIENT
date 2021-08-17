@@ -125,6 +125,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/ArchViewVO"
 
+// TODO 之后再写
   /user/login:
     post:
       tags:
@@ -206,6 +207,9 @@ paths:
                     type: string
                   data:
                     $ref: "#/components/schemas/UserVO"
+
+
+// 暂时不写
   /user/comments/{userId}:
     get:
       tags:
@@ -235,6 +239,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/CommentVO"
+
+
   /user/comment/is_like/{userId}:
     get:
       tags:
@@ -270,6 +276,8 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/LikeVO"
+
+
   /user/notices/{userId}:
     get:
       tags:

@@ -23,9 +23,10 @@
 <view class="settings-other">
 <!-- cell-group提供上下边框 -->
 <!-- inset使得cell变成卡片类型 -->
-  <van-cell-group inset>
+<van-cell-group inset>
 <van-cell title="通知"   icon="chat-o" bindtap='onBindNotifictionTap'>
 </van-cell>
+
 <van-cell title="使用条款与权限" is-link  icon="records" bind:click="onClickShow" />
 
 <!-- 遮罩层 -->

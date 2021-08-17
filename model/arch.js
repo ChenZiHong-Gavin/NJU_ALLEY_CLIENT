@@ -10,7 +10,7 @@ class Arch extends Request{
   getAllBuildings(options){
     // return new Promise((resolve,reject)=>{
     //   let props = {
-    //     url:`/api/arch/all`,
+    //     url:`/arch/all`,
     //     data:options.data,
     //     type:"GET",
     //     sCallBack:res=>{
@@ -37,7 +37,7 @@ class Arch extends Request{
   getBuildingDetail(options){
     // return new Promise((resolve,reject)=>{
     //   let props = {
-    //     url:`/api/arch/view/${options.archId}`,
+    //     url:`/arch/view/${options.archId}`,
     //     data:options.data,
     //     type:"GET",
     //     sCallBack:res=>{
@@ -69,7 +69,7 @@ class Arch extends Request{
   commentBuilding(options){
     return new Promise((resolve,reject)=>{
       let props = {
-        url:`/api/arch/comment`,
+        url:`/arch/comment`,
         data:options,
         type:"POST",
         sCallBack:res=>{
@@ -89,7 +89,7 @@ class Arch extends Request{
   rateBuilding(options){
     return new Promise((resolve,reject)=>{
       let props = {
-        url:`/api/arch/mark/${options.archId}?score=${options.score}?userId=${options.userId}`,
+        url:`/arch/mark/${options.archId}?score=${options.score}?userId=${options.userId}`,
         data:options.data,
         type:"POST",
         sCallBack:res=>{

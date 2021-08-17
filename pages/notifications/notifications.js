@@ -1,4 +1,12 @@
 // pages/notifications/notifications.js
+
+import {Notice} from '../../model/notice'
+
+const noticeApi = new Notice()
+
+const app = getApp()
+
+
 Page({
 
   /**
@@ -15,22 +23,32 @@ Page({
    */
   onLoad: function (options) {
       var that= this;
-      that.setData({
-        notification_list:[
-          {
-            noticeId: 0,
-            senderId: 1,
-            content:"test0test0test0test0test0test0test0test0test0"
-          },
-          {
-            noticeId: 1,
-            senderId: 101,
-            content:"test1test1test1test1test1test1",
-            senderAvatar:"../../static/image/index/cover.png",
-            senderName:"小明"
-          }
-        ]
-      })
+    // 接收来自后端的数据
+      noticeApi.getNotices({userId:app.globalData.userInfo.userId}).then(res=>
+        {
+          that.setData(
+            {
+              notification_list:res.data
+            }
+          )
+        })
+      
+      // that.setData({
+      //   notification_list:[
+      //     {
+      //       noticeId: 0,
+      //       senderId: 1,
+      //       content:"test0test0test0test0test0test0test0test0test0"
+      //     },
+      //     {
+      //       noticeId: 1,
+      //       senderId: 101,
+      //       content:"test1test1test1test1test1test1",
+      //       senderAvatar:"../../static/image/index/cover.png",
+      //       senderName:"小明"
+      //     }
+      //   ]
+      // })
   },
 
   /**
@@ -110,12 +128,24 @@ Page({
  * 清空通知列表后续接口操作
  */
   onBindUpdataTap(){
+
+     // 将通知都标注为已读
+    var readArray=this.data.notification_list;
+    var length=readArray.length;
+
+    
+    for (let i = 0; i < length; i++)
+    {
+      // console.log(readArray[i])
+      noticeApi.readNotices({noticeId:readArray[i].noticeId})
+    }
+
     var arr = []
     this.setData({
       notification_list:arr
     })
     console.log(this.data.notification_list)
-     // todo: 需要添加将通知都标注为已读
+
   },
   /**
    * 删除单个通知
@@ -123,7 +153,7 @@ Page({
    */
   onDeleteNotice(e){
     var index = e.currentTarget.dataset.index;
-   // console.log(e.currentTarget.dataset.index)
+   console.log(e.currentTarget.dataset.index)
    var arr = []
    this.data.notification_list.filter((item, noticeId) => {
      if (index != noticeId) {
@@ -133,9 +163,9 @@ Page({
    this.setData({
      notification_list: arr
    })
-   //console.log(this.data.notification_list)
+   console.log(this.data.notification_list)
    // 或许需要更新后端数据库
-
+   noticeApi.readNotices({noticeId:index})
 
   }
 

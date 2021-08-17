@@ -134,7 +134,7 @@ Page({
        content:this.data.mark_text_value,
        picture:this.data.fileList[0] | -2
      }
-     // console.log(commentDTO)
+     console.log(commentDTO)
      archApi.commentBuilding(commentDTO).then(res =>{
 
      })

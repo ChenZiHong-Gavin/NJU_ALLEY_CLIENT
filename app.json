@@ -14,15 +14,18 @@
     "van-notify": "vant-weapp/dist/notify/index"
   },
   "pages":[
-    "pages/review/review",
     "pages/white/white",
+    "pages/notifications/notifications",
+    "pages/user/user",
+    
+    
+    "pages/review/review",
+   
     
     "pages/building/building",
     "pages/map/map",
-   
-    "pages/user/user",
     
-    "pages/notifications/notifications",
+    
     "pages/conversation/conversation",
    
     "pages/index/index",

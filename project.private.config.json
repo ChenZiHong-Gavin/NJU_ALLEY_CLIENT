@@ -35,6 +35,18 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/notifications/notifications",
+          "pathName": "pages/notifications/notifications",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/conversation/conversation",
+          "pathName": "pages/conversation/conversation",
+          "query": "",
+          "scene": null
         }
       ]
     }

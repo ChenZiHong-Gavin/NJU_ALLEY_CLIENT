@@ -98,15 +98,15 @@ Page({
   onBindReviewTap: function () {
     wx.navigateTo({
 
-      url: '../review/review?archId=' + this.data.archId,
-       
+      url: '../review/review?archId=' + this.data.archId + '&building_name=' + this.data.building_name,
+
       })
   },
 
   onBindConversationTap: function () {
     wx.navigateTo({
    
-      url: '../conversation/conversation',
+      url: '../conversation/conversation?archId=' + this.data.archId,
        
       })
   },

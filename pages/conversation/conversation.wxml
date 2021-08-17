@@ -1,6 +1,6 @@
 <!--pages/conversation/conversation.wxml-->
 <view class="all">
-  <view wx:for="{{comment}}" wx:key="commentId" class="comment_content">
+  <view wx:for="{{comments}}" wx:key="commentId" class="comment_content">
       <view class="comment_user">
         <image src="{{item.userAvatar}}" class="user_avatar" mode="center"></image>
         <text class="user_name">{{item.userName}}</text>

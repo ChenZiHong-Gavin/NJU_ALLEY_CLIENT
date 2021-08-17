@@ -164,7 +164,7 @@ Page({
      notification_list: arr
    })
    console.log(this.data.notification_list)
-   // 或许需要更新后端数据库
+   // 更新已读
    noticeApi.readNotices({noticeId:index})
 
   }

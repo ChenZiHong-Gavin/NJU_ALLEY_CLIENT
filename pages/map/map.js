@@ -53,7 +53,12 @@ showMarkers(){
   archApi.getAllBuildings().then(res =>{
     res.data.forEach((p)=>{
       // 标记自定义图标
+      
       let marker = {id:p.archId,latitude:p.latitude,longitude:p.longitude,iconPath:'../../static/image/index/ding.png',width:20,height:20}
+      
+      //TODO:根据id确定图标
+
+      console.log(marker.iconPath)
       markers.push(marker)
 
       this.setData({

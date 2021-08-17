@@ -9,7 +9,6 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
   },
@@ -22,20 +21,25 @@ Page({
     }
   },
   getUserProfile(e) {
+    var that=this;
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
 
         wx.login({
-          success: (rs) => {
+          success: async (rs) => {
             if(rs.code){
 
-              console.log(res)
-              console.log(rs)
-              app.globalData.userInfo=res.userInfo;
-              this.setData({
-                userInfo: res.userInfo,
+              // index.js会比app.js先执行
+                app.callback=()=>
+                {
+                  console.log("异步回调")
+                  app.globalData.userInfo=res.userInfo;
+                }
+             
+              console.log(app.globalData.userInfo)
+              that.setData({
                 hasUserInfo: true
               });
 

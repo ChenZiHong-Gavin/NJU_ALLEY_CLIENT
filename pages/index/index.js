@@ -19,6 +19,7 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+
   },
   getUserProfile(e) {
     var that=this;

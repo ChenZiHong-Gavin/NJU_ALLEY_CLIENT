@@ -43,26 +43,27 @@ Page({
   })
 
   mapCtx = wx.createMapContext('myMap');
-  that.openAggator();
-  that.showMarkers();
   
 
 },
 
 showMarkers(){
+  var that=this;
   var markers = [];
   archApi.getAllBuildings().then(res =>{
+
+  //  console.log(res.data)
     res.data.forEach((p)=>{
       // 标记自定义图标
       
-      let marker = {id:p.archId,latitude:p.latitude,longitude:p.longitude,iconPath:'../../static/image/index/ding.png',width:20,height:20}
+      let marker = {id:p.archId,latitude:p.latitude,longitude:p.longitude,iconPath:'../../static/image/logo/building.png',width:20,height:20,joinCluster:true}
+
       
       //TODO:根据id确定图标
 
-      // console.log(marker.iconPath)
       markers.push(marker)
 
-      this.setData({
+      that.setData({
         markers:markers
       });
     })
@@ -99,7 +100,7 @@ onMarkerTap: function (e) {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.showMarkers();
   },
 
   /**
@@ -144,55 +145,6 @@ onMarkerTap: function (e) {
        
       })
 
-  },
-
-
-  openAggator() {
-      mapCtx.initMarkerCluster({
-      enableDefaultStyle: false,
-      zoomOnClick: true,
-      gridSize: 60,
-      complete(res) {
-        console.log('initMarkerCluster', res)
-      }
-    })
-
-      mapCtx.on('markerClusterCreate', res => {
-      console.log('clusterCreate', res)
-      const clusters = res.clusters
-      const markers = clusters.map(cluster => {
-        const {
-          center,
-          clusterId,
-          markerIds
-        } = cluster
-        return {
-          ...center,
-          width: 0,
-          height: 0,
-          clusterId, // 必须
-          label: {
-            content: markerIds.length + '',
-            fontSize: 12,
-            width: 30,
-            color: 'white',
-            height: 30,
-            bgColor: '#00A3FA',
-            borderRadius: 15,
-            textAlign: 'center',
-            anchorX: 0,
-            anchorY: -30,
-          }
-        }
-      })
-      mapCtx.addMarkers({
-        markers,
-        clear: false,
-        complete(res) {
-          console.log('clusterCreate addMarkers', res)
-        }
-      })
-    })
   },
 
 

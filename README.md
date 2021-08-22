@@ -175,7 +175,20 @@
   
   
   
+  - 解决一下体验版的问题
   
+    好像是微信的问题，永远都无法成功调用getApp()
+  
+  - 添加点聚合
+  
+    1. 地图上的 marker 分为普通的 marker 与参与聚合的 marker，参与聚合时需指定属性 joinCluster 为 true；
+    2. 自定义聚合簇样式时，同样通过 [MapContext.addMarkers](https://developers.weixin.qq.com/miniprogram/dev/api/media/map/MapContext.addMarkers.html) 进行绘制，此时需携带 clusterId
+  
+    真机调试的时候无法访问localhost后台：
+  
+    解决方案：
+  
+    将手机和电脑置于同一个局域网中，将localhost改为ip
   
   - 替换图标
   

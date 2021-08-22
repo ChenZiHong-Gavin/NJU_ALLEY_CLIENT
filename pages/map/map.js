@@ -52,15 +52,55 @@ showMarkers(){
   var markers = [];
   archApi.getAllBuildings().then(res =>{
 
-  //  console.log(res.data)
+    console.log(res.data)
     res.data.forEach((p)=>{
       // 标记自定义图标
       
       let marker = {id:p.archId,latitude:p.latitude,longitude:p.longitude,iconPath:'../../static/image/logo/building.png',width:20,height:20,joinCluster:true}
 
       
-      //TODO:根据id确定图标
+      // 根据id确定图标
+      switch(marker.id) {
+        case 2:
+        case 3:
+        case 4:
+          marker.iconPath='../../static/image/logo/yi.png'
+          marker.width=40;
+          break;
+        case 14:
+          // 方肇周
+          marker.iconPath='../../static/image/logo/fzz.png'
+          marker.width=40;
+          break;
+        case 18:
+          // 杜厦图书馆
+          marker.iconPath='../../static/image/logo/dx.png'
+          marker.width=40;
+           break;
+        case 35:
+          // 大活
+          marker.iconPath='../../static/image/logo/dh.png'
+          marker.width=40;
+           break;
+        // 食堂
+        case 7:
+        case 28:
+        case 53:
+        case 57:
+        case 69:
+          marker.iconPath='../../static/image/logo/shitang.png'
+          marker.width=40;
+          break;
+        case 16:
+        case 17:
+          marker.iconPath='../../static/image/logo/xian.png'
+          marker.width=40;
+          break;
+        default:
+          marker.iconPath='../../static/image/logo/building.png'
+   } 
 
+      
       markers.push(marker)
 
       that.setData({

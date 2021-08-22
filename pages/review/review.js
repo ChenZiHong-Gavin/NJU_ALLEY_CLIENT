@@ -151,11 +151,10 @@ Page({
 
   // 返回空间
   onBindBackTap(){
-    wx.navigateTo({
-   
-      url: '../building/building',
-       
-      })
+    wx.navigateBack({
+      delta: 1
+    })
+    
   },
 
   afterRead(event) {

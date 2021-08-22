@@ -52,7 +52,7 @@ showMarkers(){
   var markers = [];
   archApi.getAllBuildings().then(res =>{
 
-    console.log(res.data)
+    // console.log(res.data)
     res.data.forEach((p)=>{
       // 标记自定义图标
       

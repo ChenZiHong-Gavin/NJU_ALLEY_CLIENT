@@ -8,26 +8,26 @@ class Arch extends Request{
    * 获取所有建筑
    */
   getAllBuildings(options){
-    // return new Promise((resolve,reject)=>{
-    //   let props = {
-    //     url:`/arch/all`,
-    //     data:options.data,
-    //     type:"GET",
-    //     sCallBack:res=>{
-    //       resolve(res)
-    //     },
-    //     eCallBack:res=>{
-    //       reject(res)
-    //     }
-    //   }
-    //   this.request(props)
-    // })
+    return new Promise((resolve,reject)=>{
+      let props = {
+        url:`api/arch/all`,
+        // data:options.data,
+        type:"GET",
+        sCallBack:res=>{
+          resolve(res)
+        },
+        eCallBack:res=>{
+          reject(res)
+        }
+      }
+      this.request(props)
+    })
 
-  return Promise.resolve({data:[
-        {archId:1,latitude:32.112457,longitude:118.956021},
-        {archId:2,latitude:32.111371,longitude:118.955036},
-        {archId:3,latitude:32.112278,longitude:118.959157}
-      ]})
+  // return Promise.resolve({data:[
+  //       {archId:1,latitude:32.112457,longitude:118.956021},
+  //       {archId:2,latitude:32.111371,longitude:118.955036},
+  //       {archId:3,latitude:32.112278,longitude:118.959157}
+  //     ]})
 
   }
 

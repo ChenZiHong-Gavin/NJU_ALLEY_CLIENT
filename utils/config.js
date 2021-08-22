@@ -1,4 +1,4 @@
 const Config = {
-  baseUrl:''//todo
+  baseUrl:'http://localhost:8081/'//todo
 }
 export {Config};

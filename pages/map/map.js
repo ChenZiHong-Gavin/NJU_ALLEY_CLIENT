@@ -43,8 +43,9 @@ Page({
   })
 
   mapCtx = wx.createMapContext('myMap');
-
+  that.openAggator();
   that.showMarkers();
+  
 
 },
 
@@ -58,7 +59,7 @@ showMarkers(){
       
       //TODO:根据id确定图标
 
-      console.log(marker.iconPath)
+      // console.log(marker.iconPath)
       markers.push(marker)
 
       this.setData({
@@ -143,6 +144,55 @@ onMarkerTap: function (e) {
        
       })
 
+  },
+
+
+  openAggator() {
+      mapCtx.initMarkerCluster({
+      enableDefaultStyle: false,
+      zoomOnClick: true,
+      gridSize: 60,
+      complete(res) {
+        console.log('initMarkerCluster', res)
+      }
+    })
+
+      mapCtx.on('markerClusterCreate', res => {
+      console.log('clusterCreate', res)
+      const clusters = res.clusters
+      const markers = clusters.map(cluster => {
+        const {
+          center,
+          clusterId,
+          markerIds
+        } = cluster
+        return {
+          ...center,
+          width: 0,
+          height: 0,
+          clusterId, // 必须
+          label: {
+            content: markerIds.length + '',
+            fontSize: 12,
+            width: 30,
+            color: 'white',
+            height: 30,
+            bgColor: '#00A3FA',
+            borderRadius: 15,
+            textAlign: 'center',
+            anchorX: 0,
+            anchorY: -30,
+          }
+        }
+      })
+      mapCtx.addMarkers({
+        markers,
+        clear: false,
+        complete(res) {
+          console.log('clusterCreate addMarkers', res)
+        }
+      })
+    })
   },
 
 

@@ -10,7 +10,7 @@ class User extends Request{
   userLogin(options){
     return new Promise((resolve,reject)=>{
       let props = {
-        url:`/api/user/login`,
+        url:`api/user/login`,
         data:options,
         type:"POST",
         sCallBack:res=>{

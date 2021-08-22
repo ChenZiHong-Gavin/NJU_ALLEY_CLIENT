@@ -4,26 +4,22 @@
   "pages":[
 
     "pages/white/white",
+    
     "pages/notifications/notifications",
+    
     "pages/user/user",
-    
-    
+
     "pages/review/review",
-   
-    
+
     "pages/building/building",
+
     "pages/map/map",
-    
-    
+
     "pages/conversation/conversation",
-   
+
     "pages/index/index",
     "pages/welcome/welcome",
     "pages/introduce/introduce",
-    
-    
-    
-    
     "pages/logs/logs"
   ],
   "permission": {},

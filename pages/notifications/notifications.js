@@ -182,17 +182,23 @@ Page({
    * @param {*} e 
    */
   onDeleteNotice(e){
-    var index = e.currentTarget.dataset.index;
+  var that=this;
+  // console.log(e.currentTarget.dataset)
+  var index = e.currentTarget.dataset.index;
    console.log(e.currentTarget.dataset.index)
    var arr = []
-   this.data.notification_list.filter((item, noticeId) => {
-     if (index != noticeId) {
-       arr.push(item)
+
+   that.data.notification_list.forEach((p)=>
+   {
+     if(p.noticeId!=index)
+     {
+       arr.push(p)
      }
-   })
+   }  
+   )
    this.setData({
-     notification_list: arr
-   })
+    notification_list: arr
+  })
    console.log(this.data.notification_list)
    // 更新已读
    noticeApi.readNotices({noticeId:index})

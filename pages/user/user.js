@@ -1,5 +1,8 @@
 // pages/user/user.js
+
+
 const app = getApp()
+
 
 Page({
 
@@ -104,8 +107,13 @@ Page({
   },
 
   onShareSelect(event) {
-    Toast(event.detail.name);
-    this.onClose();
+    this.Toast(event.detail.name);
+    this.onShareClose();
+  },
+
+  Toast(name)
+  {
+
   },
 
   // 前往通知页面

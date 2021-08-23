@@ -26,6 +26,7 @@ Page({
     // 接收来自后端的数据
       noticeApi.getNotices({userId:app.globalData.userId}).then(res=>
         {
+          console.log(res)
           that.setData(
             {
               notification_list:res.data

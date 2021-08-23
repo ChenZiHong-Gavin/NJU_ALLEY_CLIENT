@@ -124,8 +124,8 @@ clickImg: function(e){
 
 onBindBackTap: function()
 {
-  wx.navigateTo({
-    url: '../map/map',
+  wx.navigateBack({
+    delta: 0,
   })
 }
 

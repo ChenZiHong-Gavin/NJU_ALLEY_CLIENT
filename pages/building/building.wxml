@@ -1,7 +1,7 @@
 <!--pages/building/building.wxml-->
 
 <view class="title">
-<view class="title-icon" bindtap="onBindBackTap">
+<view class="title-icon">
   <van-icon name="arrow-left" bindtap='onBindBackTap' />
 </view>
 <view class="title-word">

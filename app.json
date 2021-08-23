@@ -4,9 +4,10 @@
   "pages":[
 
    
-    "pages/white/white",
-    
     "pages/notifications/notifications",
+    "pages/white/white",
+    "pages/conversation/conversation",
+   
     
     "pages/user/user",
     "pages/review/review",
@@ -14,8 +15,6 @@
     "pages/building/building",
 
     "pages/map/map",
-
-    "pages/conversation/conversation",
 
     "pages/index/index",
     "pages/welcome/welcome",

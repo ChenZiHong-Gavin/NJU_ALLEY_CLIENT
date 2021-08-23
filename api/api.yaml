@@ -277,8 +277,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/LikeVO"
 
-// todo
-  /user/notices/{userId}:
+  /user/notice/{userId}:
     get:
       tags:
         - user

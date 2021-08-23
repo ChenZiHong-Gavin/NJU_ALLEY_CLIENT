@@ -1,6 +1,9 @@
 // pages/notifications/notifications.js
 
 import {Notice} from '../../model/notice'
+import {User} from '../../model/user'
+
+const userApi = new User()
 
 const noticeApi = new Notice()
 
@@ -13,43 +16,69 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    temp_list:[],
     notification_list:[],
     show:true
   },
+
+
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      var that= this;
+
+    var that= this;
     // 接收来自后端的数据
       noticeApi.getNotices({userId:app.globalData.userId}).then(res=>
         {
-          console.log(res)
-          that.setData(
-            {
-              notification_list:res.data
-            }
-          )
+          // res.data是所有的消息
+          // console.log(res)
+          if(res.data==[])
+          {
+            res.data=
+            [
+                  {
+                    noticeId: 0,
+                    senderId: 1,
+                    content:"你暂时还没有收到任何消息哦"
+                  }
+                ]
+          }
+          // 需要筛选出未读信息
+          var unReadNotices=[]
+          res.data.forEach((p)=>
+          {
+            if(p.isUnread==false)
+              {
+               // 未读消息
+               if(p.senderId!=1)
+               {
+              // 需要确定senderName和senderAvatar
+              userApi.getUserData({userId:p.senderId}).then(rs=>
+                {
+                  p.senderName=rs.data.name;
+                  p.senderAvatar=rs.data.avatar;
+                  
+                  that.setData(
+                    {
+                      notification_list:unReadNotices
+                    }
+                  )
+                },
+                )
+
+              }
+              unReadNotices.push(p)
+              }
+            
+          })
+        
+
+
         })
       
-      // that.setData({
-      //   notification_list:[
-      //     {
-      //       noticeId: 0,
-      //       senderId: 1,
-      //       content:"test0test0test0test0test0test0test0test0test0"
-      //     },
-      //     {
-      //       noticeId: 1,
-      //       senderId: 101,
-      //       content:"test1test1test1test1test1test1",
-      //       senderAvatar:"../../static/image/index/cover.png",
-      //       senderName:"小明"
-      //     }
-      //   ]
-      // })
   },
 
   /**
@@ -63,6 +92,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
 
   },
 

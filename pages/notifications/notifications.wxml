@@ -20,6 +20,7 @@
     <van-cell-group insert>
       <view wx:for="{{notification_list}}" wx:key="noticeId">
         <!--系统通知-->
+        <!-- 如果是系统通知的，使用默认头像 -->
         <van-swipe-cell right-width="{{65}}" async-close bind:close="onDeleteNotice" data-index="{{item.noticeId}}">
         <van-cell wx:if="{{item.senderId==1}}" size="large" >
           <view slot="title" class="title_content">
@@ -35,6 +36,7 @@
         </view>
       </van-swipe-cell>
         <!--用户回复-->
+        <!-- 如果是用户回复，需要确定头像 -->
         <van-swipe-cell right-width="{{65}}" async-close bind:close="onDeleteNotice" data-index="{{item.noticeId}}">
         <van-cell wx:if="{{item.senderId!=1}}" size="large">
           <view slot="title" class="title_content">

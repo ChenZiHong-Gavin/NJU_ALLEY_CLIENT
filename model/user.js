@@ -31,6 +31,29 @@ class User extends Request{
   }
 
 
+   /**
+   * 获取用户信息
+   */
+  getUserData(options){
+    return new Promise((resolve,reject)=>{
+      let props = {
+        url:`api/user/view/${options.userId}`,
+        data:options,
+        type:"GET",
+        sCallBack:res=>{
+          resolve(res)
+        },
+        eCallBack:res=>{
+          reject(res)
+        }
+      }
+      this.request(props)
+    })
+
+
+  }
+
+
 
 }
 export {User}

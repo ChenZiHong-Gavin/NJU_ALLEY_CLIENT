@@ -3,11 +3,11 @@
   },
   "pages":[
 
+    "pages/user/user",
     "pages/white/white",
     
     "pages/notifications/notifications",
     
-    "pages/user/user",
 
     "pages/review/review",
 

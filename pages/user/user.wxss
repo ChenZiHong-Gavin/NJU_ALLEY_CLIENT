@@ -79,3 +79,10 @@ border-radius: 50% !important;
   font-size: x-large;
   font-weight: 900px;
 }
+
+/* 提示的箭头 */
+.tip-image
+{
+position: absolute;
+top: 20px;
+}

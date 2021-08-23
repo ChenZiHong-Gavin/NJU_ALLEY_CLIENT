@@ -12,18 +12,13 @@ Page({
    data: {
     userInfo:null,
     showRight: false,
+    showShareTip: false,
     showShare: false,
     options: [
       [
         { name: '微信', icon: 'wechat' },
-        { name: '微博', icon: 'weibo' },
-        { name: 'QQ', icon: 'qq' },
-      ],
-      [
         { name: '复制链接', icon: 'link' },
-        { name: '分享海报', icon: 'poster' },
-        { name: '二维码', icon: 'qrcode' },
-      ],
+      ]
     ],
     activeNames: ""
   },
@@ -92,30 +87,45 @@ Page({
  
     wx.setStorageSync('welcome',true);
      
-    wx.navigateTo({
-     
-    url: '../map/map',
-     
+    wx.navigateBack({
+      delta: 1,
     })
   },
+
+  // 点击分享
   onShareClick(event) {
     this.setData({ showShare: true });
   },
 
+  // 关闭分享面板
   onShareClose(event) {
     this.setData({ showShare: false });
   },
 
+  // 分享面板中的按钮
   onShareSelect(event) {
     this.Toast(event.detail.name);
-    this.onShareClose();
+    this.setData({ showShareTip: true });
   },
 
   Toast(name)
   {
-
+    if(name=='微信'||'复制链接')
+    {
+      // 打开提示遮罩层
+      this.onShareClose();
+    }
   },
 
+  // 关闭遮罩层
+  onClickShareHide()
+  {
+    this.setData(
+      {
+        showShareTip: false
+      }
+    )
+  },
   // 前往通知页面
   onBindNotifictionTap: function()
   {

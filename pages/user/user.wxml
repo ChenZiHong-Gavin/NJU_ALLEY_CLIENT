@@ -52,16 +52,22 @@
 <!-- 下拉联系方式 -->
 <van-collapse value="{{ activeNames }}" bind:change="onChange">
   <van-collapse-item class="contactUs" title="联系我们" name="1" icon="envelop-o">
-    微信:
-    微博：
-    QQ：
-    Github:
+    微信: woshixiaobai2238
+    QQ：909843505
+    Github: https://github.com/ChenZiHong-Gavin/NJU_ALLEY_CLIENT
   </van-collapse-item>
 </van-collapse>
 
 
 <van-cell title="分享" bind:click="onShareClick" icon="share-o"/>
 
+<!-- 遮罩层 -->
+<van-overlay show="{{ showShareTip }}" bind:click="onClickShareHide">
+  <view class="wrapper">
+    <view catch:tap="noop" />
+    <image class="tip-image" src="../../static/image/tip/arrow.png" mode="center"></image>
+  </view>
+</van-overlay>
 
 
 <van-cell title="致谢" icon="medal-o"/>

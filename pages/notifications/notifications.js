@@ -106,10 +106,9 @@ Page({
    */
   onBindBackTap(){
 
-    wx.navigateTo({
-      url: '../user/user',
+    wx.navigateBack({
+      delta: 1,
     })
-
   },
 
 

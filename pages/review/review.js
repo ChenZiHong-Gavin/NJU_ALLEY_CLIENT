@@ -181,8 +181,8 @@ Page({
 
   onClickHide() {
     this.setData({ showSuccess: false });
-    wx.navigateTo({
-      url: '../map/map',
+    wx.navigateBack({
+      delta: 2,
     })
   },
 })

@@ -1,5 +1,9 @@
 /* pages/user/user.wxss */
 
+page
+{
+  touch-action: none;
+}
 .settings
 {
   height: 160px;

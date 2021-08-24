@@ -3,9 +3,9 @@
   },
   "pages":[
 
-   
-    "pages/notifications/notifications",
     "pages/white/white",
+    "pages/notifications/notifications",
+    
     "pages/conversation/conversation",
    
     

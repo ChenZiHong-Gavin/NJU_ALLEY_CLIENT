@@ -34,14 +34,16 @@ Page({
       noticeApi.getNotices({userId:app.globalData.userId}).then(res=>
         {
           // res.data是所有的消息
-          // console.log(res)
-          if(res.data==[])
+          console.log(res)
+          if(res.data.length==0)
           {
+            console.log("isempty")
             res.data=
             [
                   {
-                    noticeId: 0,
+                    noticeId: -1,
                     senderId: 1,
+                    isUnread: false,
                     content:"你暂时还没有收到任何消息哦"
                   }
                 ]
@@ -71,6 +73,11 @@ Page({
 
               }
               unReadNotices.push(p)
+              that.setData(
+                {
+                  notification_list:unReadNotices
+                }
+              )
               }
             
           })
@@ -199,10 +206,11 @@ Page({
    this.setData({
     notification_list: arr
   })
-   console.log(this.data.notification_list)
+   
    // 更新已读
    noticeApi.readNotices({noticeId:index})
 
+   console.log(this.data.notification_list)
   }
 
   

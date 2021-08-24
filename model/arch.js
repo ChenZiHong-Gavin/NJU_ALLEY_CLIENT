@@ -172,7 +172,7 @@ class Arch extends Request{
   commentBuilding(options){
     return new Promise((resolve,reject)=>{
       let props = {
-        url:`/arch/comment`,
+        url:`api/arch/comment`,
         data:options,
         type:"POST",
         sCallBack:res=>{
@@ -192,7 +192,7 @@ class Arch extends Request{
   rateBuilding(options){
     return new Promise((resolve,reject)=>{
       let props = {
-        url:`/arch/mark/${options.archId}?score=${options.score}?userId=${options.userId}`,
+        url:`api/arch/mark/${options.archId}?score=${options.score}?userId=${options.userId}`,
         data:options.data,
         type:"POST",
         sCallBack:res=>{

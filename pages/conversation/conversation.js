@@ -1,5 +1,6 @@
 // pages/conversation/conversation.js
 
+
 // 接口TODO：
 // 点赞/取消点赞
 // 评论
@@ -30,16 +31,128 @@ Page({
     var that = this;
 
     let archId = options.archId;
+
     console.log("conversation-archId: " + archId);
     that.setData({
       archId:archId
     })
 
-    archApi.getBuildingDetail({archId:archId}).then(res =>{
-      that.setData({
-        comments:res.data.comments
-      })
-    })
+
+
+
+
+    that.setData(
+      {
+        comments:     [
+          {
+            commentId:0,
+            fatherId:-1,
+            userId:10,
+            userName:'张三',
+            userAvatar:"../../static/image/box/box_body.png",
+            likeNum:20,
+            createT:'2021-8-15',
+            content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1',
+            picture:'../../static/image/box/box_body.png',
+            showChild:true,
+            children:[
+              {
+                commentId:1,
+                fatherId:0,
+                userId:2,
+                userName:'小明',
+                userAvatar:"../../static/image/introduce/state1.png",
+                likeNum:100,
+                createT:'2021-8-15',
+                content:'test1.1',
+                picture:'../../static/state1.png',
+                children:[]
+              }
+            ]
+          },
+          {
+            commentId:2,
+            fatherId:-1,
+            userId:12,
+            userName:'李四',
+            userAvatar:"../../static/state1.png",
+            likeNum:50,
+            createT:'2021-8-12',
+            content:'test2test2test2test2test2test2test2test2test2test2test2test2',
+            picture:'-2',
+            showChildren:false,
+            children:[]
+          },
+          {
+            commentId:3,
+            fatherId:-1,
+            userId:12,
+            userName:'李四',
+            userAvatar:"../../static/state1.png",
+            likeNum:50,
+            createT:'2021-8-12',
+            content:'test2test2test2test2test2test2test2test2test2test2test2test2',
+            picture:'-2',
+            children:[]
+          },
+          {
+            commentId:4,
+            fatherId:-1,
+            userId:10,
+            userName:'张三',
+            userAvatar:"../../static/image/box/box_body.png",
+            likeNum:20,
+            createT:'2021-8-15',
+            content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1',
+            picture:'../../static/image/box/box_body.png',
+            children:[
+              {
+                commentId:5,
+                fatherId:0,
+                userId:2,
+                userName:'小明',
+                userAvatar:"../../static/image/introduce/state1.png",
+                likeNum:100,
+                createT:'2021-8-15',
+                content:'test1.1',
+                picture:'../../static/state1.png',
+                children:[]
+              }
+            ]
+          },
+          {
+            commentId:6,
+            fatherId:-1,
+            userId:10,
+            userName:'张三',
+            userAvatar:"../../static/image/box/box_body.png",
+            likeNum:20,
+            createT:'2021-8-15',
+            content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1',
+            picture:'../../static/image/box/box_body.png',
+            children:[
+              {
+                commentId:7,
+                fatherId:0,
+                userId:2,
+                userName:'小明',
+                userAvatar:"../../static/image/introduce/state1.png",
+                likeNum:100,
+                createT:'2021-8-15',
+                content:'test1.1',
+                picture:'../../static/state1.png',
+                children:[]
+              }
+            ]
+          },
+        ]
+      }
+    )
+    // archApi.getBuildingDetail({archId:archId}).then(res =>{
+    //   that.setData({
+    //     comments:res.data.comments
+    //   })
+    // })
 
   },
 
@@ -91,6 +204,14 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+  /* 返回按钮 */
+  onBindBackTap: function () {
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
+
 
   onReadMore(e){
     console.log(e.currentTarget.dataset.index)

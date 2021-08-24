@@ -1,10 +1,4 @@
 <!--pages/review/review.wxml-->
-<!-- <page-meta>
- <navigation-bar 
- title="点评"
- front-color="#fffff"
- />
-</page-meta> -->
 <!-- 返回 -->
 <view class="title">
 <view class="title-icon">

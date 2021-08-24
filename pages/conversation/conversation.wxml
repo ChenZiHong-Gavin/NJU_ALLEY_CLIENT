@@ -1,4 +1,14 @@
 <!--pages/conversation/conversation.wxml-->
+
+<view class="title">
+<view class="title-icon">
+  <van-icon name="arrow-left" bindtap='onBindBackTap' />
+</view>
+<view class="title-word">
+<text>讨论区</text>
+</view>
+</view>
+
 <view class="all">
   <view wx:for="{{comments}}" wx:key="commentId" class="comment_content">
       <view class="comment_user">

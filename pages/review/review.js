@@ -141,12 +141,15 @@ Page({
      console.log(ArchCommentDTO)
      archApi.commentBuilding(ArchCommentDTO).then(res =>{
 
+      console.log(res)
      })
      // 评分
-     archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:app.globalData.userId});
+     archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:app.globalData.userId}).then(res =>{
 
-     this.onClickShow();
+      console.log(res)
+      this.onClickShow();
   
+     })
   },
 
   // 返回空间

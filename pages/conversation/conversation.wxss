@@ -1,8 +1,29 @@
 /* pages/conversation/conversation.wxss */
 page{
+  background: #3EB575;
   height: 100%;
   width: 100%;
 }
+
+.title{
+  font-size: x-large;
+  color:white;
+  margin-top: 50px;
+ }
+ .title-icon
+ {
+   /* 用于使返回按钮和文字处于同一行 */
+   position: absolute;
+   margin-left: 20px;
+   text-align: left;
+ }
+ 
+ .title-word
+ {
+   text-align: center;
+ }
+ 
+
 
 .all{
   margin-top:90px;

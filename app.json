@@ -3,10 +3,10 @@
   },
   "pages":[
 
+    "pages/conversation/conversation",
     "pages/white/white",
     "pages/notifications/notifications",
-    
-    "pages/conversation/conversation",
+
    
     
     "pages/user/user",

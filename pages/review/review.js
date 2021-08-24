@@ -3,8 +3,10 @@
 import Notify from '../../vant-weapp/dist/notify/notify';
 
 import {Arch} from '../../model/arch'
+import {Comment} from '../../model/comment'
 
 const archApi = new Arch()
+const commnetApi = new Comment()
 
 const app = getApp()
 
@@ -28,11 +30,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
-    // that.setData({
-    //   user_name:"小明",
-    //   building_name:"大活"
-    // })
     
     let building_name = options.building_name;
     let archId = options.archId;
@@ -133,7 +130,7 @@ Page({
      let ArchCommentDTO = {
        archId:this.data.archId,
        // 没有父评论
-       //fatherId:-1,
+       // fatherId:-1,
        userId:app.globalData.userId,
        content:this.data.mark_text_value,
        picture:this.data.fileList[0] | -2
@@ -161,8 +158,18 @@ Page({
   },
 
   afterRead(event) {
+    // console.log("after-read")
+    // console.log(event)
+    // 获取阿里oss的policy
+
+    commnetApi.getPolicy().then(res=>
+      {
+        console.log(res.data)
+      }
+    )
     const { file } = event.detail;
     // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+    // 上传到远端服务器
     wx.uploadFile({
       url: '', 
       filePath: file.url,

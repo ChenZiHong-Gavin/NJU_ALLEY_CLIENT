@@ -24,6 +24,7 @@
       />
     </view>
 
+<!-- 上传图片 -->
     <van-uploader class="uploader" file-list="{{ fileList }}" bind:after-read="afterRead"  deletable="{{ true }}" preview-size="20px" max-count="1" />
 
 

@@ -192,7 +192,8 @@ class Arch extends Request{
   rateBuilding(options){
     return new Promise((resolve,reject)=>{
       let props = {
-        url:`api/arch/mark/${options.archId}?score=${options.score}?userId=${options.userId}`,
+        // 多个prop时用&分隔
+        url:`api/arch/mark/${options.archId}?score=${options.score}&userId=${options.userId}`,
         data:options.data,
         type:"POST",
         sCallBack:res=>{

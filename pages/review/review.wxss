@@ -54,7 +54,7 @@ page{
 }
 
 .prompt{
-  font-size: xx-large;
+  font-size: large;
   margin-top: 20px;
 }
 .mark_stars{

@@ -2,9 +2,9 @@
   "usingComponents": {
   },
   "pages":[
-
-    "pages/conversation/conversation",
     "pages/white/white",
+    "pages/conversation/conversation",
+    
     "pages/notifications/notifications",
 
    

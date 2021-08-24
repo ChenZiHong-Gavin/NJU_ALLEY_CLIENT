@@ -165,23 +165,41 @@ Page({
     commnetApi.getPolicy().then(res=>
       {
         console.log(res.data)
+        const aliyunServerURL=res.data.host;
+        const aliyunFileKey=res.data.dir;
+        const accessId=res.data.accessKeyId;
+        const policy=res.data.policy;
+        const signature=res.data.signature;
+
+        const { file } = event.detail;
+        console.log(file.url.slice(11))
+        // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+        // 上传到远端服务器
+        wx.uploadFile({
+          url: aliyunServerURL, 
+          filePath: file.url,
+          name: 'file',
+          formData: 
+          { 
+            'key': aliyunFileKey+"/"+file.url.slice(11),
+            'policy': policy,
+            'OSSAccessKeyId':accessId,
+            'signature': signature,
+            'success_action_status': '200',
+          },
+          success(res) {
+            console.log(res)
+            // 上传完成需要更新 fileList
+            const { fileList = [] } = this.data;
+            fileList.push({ ...file, url: res.data });
+            this.setData({ fileList });
+          },
+        });
+
+
       }
     )
-    const { file } = event.detail;
-    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
-    // 上传到远端服务器
-    wx.uploadFile({
-      url: '', 
-      filePath: file.url,
-      name: 'file',
-      formData: { user: 'test' },
-      success(res) {
-        // 上传完成需要更新 fileList
-        const { fileList = [] } = this.data;
-        fileList.push({ ...file, url: res.data });
-        this.setData({ fileList });
-      },
-    });
+
   },
 
   //控制使用条款遮罩层的两个方法

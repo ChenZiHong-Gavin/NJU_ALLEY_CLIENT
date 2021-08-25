@@ -20,8 +20,18 @@ Page({
     archId:0, // 可以跳转页面的时候作为参数
     comments:[],
     value:"",
-    picture:""
+    picture:"",
+    foldStat: true,
   },
+
+
+  fold: function() {
+    var that = this;
+    that.setData({
+      foldStat: !that.data.foldStat
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -43,7 +53,7 @@ Page({
 
     that.setData(
       {
-        comments:     [
+        comments:  [
           {
             commentId:0,
             fatherId:-1,

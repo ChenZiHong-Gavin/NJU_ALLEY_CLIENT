@@ -22,7 +22,6 @@
           <image src="{{item.picture}}" class="picture" mode="center"></image>
         </view>
       <view class="content_text {{foldStat?'hide':''}}">{{item.content}}</view>
-      <view bindtap="fold">{{foldStat?'查看全部':'收起'}}</view>
       </view>
       <view class="data">
         <button style="background-color:#0066ff1a" class="likeNum_btn" size="mini" bindtap="onLikeTap" data-index="{{item.commentId}}">

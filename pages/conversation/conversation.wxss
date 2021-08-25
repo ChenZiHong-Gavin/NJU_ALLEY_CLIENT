@@ -70,15 +70,16 @@ page{
   margin-left: 15px;
   margin-right:15px;
   font-size:18px;
+  
   display: -webkit-box;
- 
+  word-break: break-all;
 }
 
 .content_text.hide{
    /*规定子元素的排列方向 */
    -webkit-box-orient: vertical;
    /*限制文本显示的行数  */
-   -webkit-line-clamp: 3;
+   -webkit-line-clamp: 2;
    /*实现多余的文字隐藏并用省略号来代表被隐藏的文字  */
    overflow: hidden;
    text-overflow: ellipsis;

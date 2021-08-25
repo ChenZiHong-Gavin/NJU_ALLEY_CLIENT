@@ -25,12 +25,6 @@ Page({
   },
 
 
-  fold: function() {
-    var that = this;
-    that.setData({
-      foldStat: !that.data.foldStat
-    })
-  },
 
 
   /**
@@ -237,6 +231,10 @@ Page({
 
   onReadMore(e){
     console.log(e.currentTarget.dataset.index)
+    var that = this;
+    that.setData({
+      foldStat: !that.data.foldStat
+    })
   },
 
 /**

@@ -7,8 +7,9 @@
 // 获取用户名头像
 
 import {Arch} from '../../model/arch'
-
 const archApi = new Arch()
+import {User} from '../../model/user'
+const userApi = new User()
 
 Page({
 
@@ -46,13 +47,16 @@ Page({
       comments.forEach((comment)=>{
         //转换时间戳
         comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
+        //通过用户id获取头像
+        userApi.getUserData({userId:comment.userId}).then(rs =>{
+          comment.userAvatar=rs.data.avatar;
+          that.setData({
+            comments:res.data.comments
+          })
+        })
         console.log(comment)
       });
 
-      
-      that.setData({
-        comments:res.data.comments
-      })
     })
 
   },

@@ -13,13 +13,13 @@
   
   <van-cell inset wx:for="{{comments}}" wx:key="commentId" class="comment_content">
       <view class="comment_user">
-        <image src="{{item.userAvatar}}" class="user_avatar" mode="center"></image>
+        <image src="{{item.userAvatar}}" class="user_avatar" mode="scaleToFill"></image>
         <text class="user_name">{{item.userName}}</text>
         <text class="create_time">{{item.createT}}</text>
       </view>
       <view class="content" bindtap="onReadMore" data-index="{{item.commentId}}">
         <view wx:if="{{item.picture!='-2'}}">
-          <image src="{{item.picture}}" class="picture" mode="center"></image>
+          <image src="{{item.picture}}" class="picture" mode="scaleToFil"></image>
         </view>
       <view class="content_text {{foldStat?'hide':''}}">{{item.content}}</view>
       </view>

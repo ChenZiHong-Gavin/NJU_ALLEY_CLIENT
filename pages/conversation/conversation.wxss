@@ -93,12 +93,7 @@ page{
   margin-right:15px;
   font-size:18px;
   height:50px;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
   word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
 }
 
 .picture{
@@ -138,7 +133,7 @@ page{
 /* 评论与评论之间的距离 */
 .children_content
 {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .input_line{

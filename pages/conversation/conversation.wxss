@@ -80,6 +80,21 @@ page{
   -webkit-line-clamp: 2;
 }
 
+.children_text
+{
+  margin-top:10px;
+  margin-left: 15px;
+  margin-right:15px;
+  font-size:18px;
+  height:50px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .picture{
   margin-top:10px;
   margin-left: 5px;
@@ -111,6 +126,13 @@ page{
 .children{
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+}
+
+/* 评论与评论之间的距离 */
+.children_content
+{
+  margin-top: 10px;
 }
 
 .input_line{

@@ -49,13 +49,25 @@ Page({
             fatherId:-1,
             userId:10,
             userName:'张三',
-            userAvatar:"../../static/image/box/box_body.png",
+            userAvatar:"../../static/image/introduce/state1.png",
             likeNum:20,
             createT:'2021-8-15',
             content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-            picture:'../../static/image/box/box_body.png',
+            picture:'../../static/image/background/background.png',
             showChild:true,
             children:[
+              {
+                commentId:1,
+                fatherId:0,
+                userId:2,
+                userName:'小明',
+                userAvatar:"../../static/image/introduce/state1.png",
+                likeNum:100,
+                createT:'2021-8-15',
+                content:'test1.ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo',
+                picture:'../../static/state1.png',
+                children:[]
+              },
               {
                 commentId:1,
                 fatherId:0,

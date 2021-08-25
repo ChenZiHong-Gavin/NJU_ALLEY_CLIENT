@@ -35,12 +35,13 @@
       </view>
      <view wx:if="{{item.showChild}}" class="children">
        <view wx:if="{{item.children.length > 0}}" >
-         <view wx:for="{{item.children}}" wx:key="commentId" wx:for-item="children">
+         <view class="children_content"  wx:for="{{item.children}}" wx:key="commentId" wx:for-item="children">
             <view class="comment_user">
               <image src="{{children.userAvatar}}" class="user_avatar" mode="center"></image>
               <text class="user_name">{{children.userName}}</text>
               <text class="create_time">{{children.createT}}</text>
             </view>
+            <view class="children_text">{{children.content}}</view>
         </view>
          <van-divider />
         </view>

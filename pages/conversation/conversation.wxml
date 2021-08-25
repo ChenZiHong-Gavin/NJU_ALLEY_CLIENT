@@ -11,7 +11,7 @@
 
 <view class="all">
   
-  <view wx:for="{{comments}}" wx:key="commentId" class="comment_content">
+  <van-cell inset wx:for="{{comments}}" wx:key="commentId" class="comment_content">
       <view class="comment_user">
         <image src="{{item.userAvatar}}" class="user_avatar" mode="center"></image>
         <text class="user_name">{{item.userName}}</text>
@@ -25,11 +25,11 @@
       </view>
       <view class="data">
         <button style="background-color:#0066ff1a" class="likeNum_btn" size="mini" bindtap="onLikeTap" data-index="{{item.commentId}}">
-          <van-icon name="good-job-o" color="#0066ff"/>
+          <van-icon name="good-job-o" color="#3EB575"/>
           <text class="likeNum_text">赞同 {{item.likeNum}}</text>
         </button>
         <button size="mini" class="comment_btn" style="background-color:white" bindtap="onShowChildren" data-index="{{item.commentId}}">
-          <van-icon name="chat-o" />
+          <van-icon name="chat" color="#3EB575" />
           <text class="comment_text">{{item.children.length}} 条评论</text>
         </button>
       </view>
@@ -54,14 +54,14 @@
       class="input"
       >
       <button slot="button" style="background-color:white" size="mini">
-        <van-icon name="photo-o" /> 
+        <van-icon name="photo-o"  color="#3EB575"  /> 
       </button>
       </van-field>
-      <button size="mini" style="background-color:#add8e6;color:white" class="post" bindtap="onPostTap" data-index="{{item.commentId}}">
+      <button size="default" style="background-color:#3EB575;color:white" class="post" bindtap="onPostTap" data-index="{{item.commentId}}">
         <text class="post_text">发布</text>
       </button>
       </view>
      </view>
       <van-divider class="divider"/>
-  </view>
+  </van-cell>
 </view>

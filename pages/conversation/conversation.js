@@ -52,7 +52,7 @@ Page({
             userAvatar:"../../static/image/box/box_body.png",
             likeNum:20,
             createT:'2021-8-15',
-            content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1',
+            content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
             picture:'../../static/image/box/box_body.png',
             showChild:true,
             children:[

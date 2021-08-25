@@ -2,8 +2,12 @@
   "usingComponents": {
   },
   "pages":[
-    "pages/white/white",
+
+
     "pages/conversation/conversation",
+
+    "pages/white/white",
+    
     
     "pages/notifications/notifications",
 

@@ -24,15 +24,12 @@ page{
  }
  
 
-
 .all{
   margin-top:90px;
 }
 
 .comment_content{
   
-
-  width:100%;
   display:flex;
   flex-direction: column;
 }
@@ -99,7 +96,7 @@ page{
 
 .likeNum_text{
   margin-left: 10px;
-  color: #0066ff;
+  color: #3EB575;
   font-size:15px;
 }
 
@@ -107,7 +104,7 @@ page{
   margin-left: 10px;
 }
 .comment_text{
-  color:gray;
+  color:#3EB575;
   margin-left: 10px;
 }
 

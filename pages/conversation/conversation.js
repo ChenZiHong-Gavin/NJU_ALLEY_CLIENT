@@ -5,7 +5,6 @@
 // 点赞/取消点赞
 // 评论
 // 获取用户名头像
-// （多级评论）
 
 import {Arch} from '../../model/arch'
 
@@ -42,133 +41,17 @@ Page({
     })
 
 
-
-
-
-    that.setData(
-      {
-        comments:  [
-          {
-            commentId:0,
-            fatherId:-1,
-            userId:10,
-            userName:'张三',
-            userAvatar:"../../static/image/introduce/state1.png",
-            likeNum:20,
-            createT:'2021-8-15',
-            content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-            picture:'../../static/image/background/background.png',
-            showChild:true,
-            children:[
-              {
-                commentId:1,
-                fatherId:0,
-                userId:2,
-                userName:'小明',
-                userAvatar:"../../static/image/introduce/state1.png",
-                likeNum:100,
-                createT:'2021-8-15',
-                content:'test1.ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo',
-                picture:'../../static/state1.png',
-                children:[]
-              },
-              {
-                commentId:1,
-                fatherId:0,
-                userId:2,
-                userName:'小明',
-                userAvatar:"../../static/image/introduce/state1.png",
-                likeNum:100,
-                createT:'2021-8-15',
-                content:'test1.1',
-                picture:'../../static/state1.png',
-                children:[]
-              }
-            ]
-          },
-          {
-            commentId:2,
-            fatherId:-1,
-            userId:12,
-            userName:'李四',
-            userAvatar:"../../static/state1.png",
-            likeNum:50,
-            createT:'2021-8-12',
-            content:'test2test2test2test2test2test2test2test2test2test2test2test2',
-            picture:'-2',
-            showChildren:false,
-            children:[]
-          },
-          {
-            commentId:3,
-            fatherId:-1,
-            userId:12,
-            userName:'李四',
-            userAvatar:"../../static/state1.png",
-            likeNum:50,
-            createT:'2021-8-12',
-            content:'test2test2test2test2test2test2test2test2test2test2test2test2',
-            picture:'-2',
-            children:[]
-          },
-          {
-            commentId:4,
-            fatherId:-1,
-            userId:10,
-            userName:'张三',
-            userAvatar:"../../static/image/box/box_body.png",
-            likeNum:20,
-            createT:'2021-8-15',
-            content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1',
-            picture:'../../static/image/box/box_body.png',
-            children:[
-              {
-                commentId:5,
-                fatherId:0,
-                userId:2,
-                userName:'小明',
-                userAvatar:"../../static/image/introduce/state1.png",
-                likeNum:100,
-                createT:'2021-8-15',
-                content:'test1.1',
-                picture:'../../static/state1.png',
-                children:[]
-              }
-            ]
-          },
-          {
-            commentId:6,
-            fatherId:-1,
-            userId:10,
-            userName:'张三',
-            userAvatar:"../../static/image/box/box_body.png",
-            likeNum:20,
-            createT:'2021-8-15',
-            content:'test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1',
-            picture:'../../static/image/box/box_body.png',
-            children:[
-              {
-                commentId:7,
-                fatherId:0,
-                userId:2,
-                userName:'小明',
-                userAvatar:"../../static/image/introduce/state1.png",
-                likeNum:100,
-                createT:'2021-8-15',
-                content:'test1.1',
-                picture:'../../static/state1.png',
-                children:[]
-              }
-            ]
-          },
-        ]
-      }
-    )
-    // archApi.getBuildingDetail({archId:archId}).then(res =>{
-    //   that.setData({
-    //     comments:res.data.comments
-    //   })
-    // })
+    archApi.getBuildingDetail({archId:archId}).then(res =>{
+      var comments=res.data.comments;
+      comments.forEach((comment)=>{
+        //转换时间戳
+        comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
+        console.log(comment)
+      });
+      that.setData({
+        comments:res.data.comments
+      })
+    })
 
   },
 

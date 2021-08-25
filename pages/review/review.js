@@ -127,25 +127,24 @@ Page({
 
      // console.log(this.data.mark_text_value)
 
+     console.log("aaaaa")
+     console.log(this.data.fileList[0]);
      let ArchCommentDTO = {
        archId:this.data.archId,
        // 没有父评论
        // fatherId:-1,
        userId:app.globalData.userId,
        content:this.data.mark_text_value,
-       picture:this.data.fileList[0] | -2
+       picture:this.data.fileList[0].url
      }
      console.log(ArchCommentDTO)
      archApi.commentBuilding(ArchCommentDTO).then(res =>{
-
       console.log(res)
      })
      // 评分
      archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:app.globalData.userId}).then(res =>{
-
       console.log(res)
       this.onClickShow();
-  
      })
   },
 
@@ -189,10 +188,10 @@ Page({
             'success_action_status': '200',
           },
           success(res) {
-            console.log(res)
+            // console.log(res)
             // 上传完成需要更新 fileList
             const { fileList = [] } = that.data.fileList;
-            fileList.push({ ...file, url: aliyunFileKey+"/"+file.url.slice(11) });
+            fileList.push({url:aliyunServerURL+"/"+aliyunFileKey+"/"+file.url.slice(11)});
             that.setData({ fileList });
           },
         });

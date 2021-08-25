@@ -48,6 +48,8 @@ Page({
         comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
         console.log(comment)
       });
+
+      
       that.setData({
         comments:res.data.comments
       })

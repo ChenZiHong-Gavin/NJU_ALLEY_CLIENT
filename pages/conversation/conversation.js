@@ -57,7 +57,7 @@ Page({
             comments:res.data.comments
           })
         })
-        console.log(comment)
+        // console.log(comment)
       });
 
     })
@@ -143,7 +143,7 @@ Page({
        that.setData({
          [index]:likeNum_index
        })
-       //console.log(that.data.comments[i].likeNum)
+       console.log(that.data.comments[i].likeNum)
       }  
     }
    // todo 更新后端数据

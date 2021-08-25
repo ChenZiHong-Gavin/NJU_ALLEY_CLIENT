@@ -24,8 +24,9 @@
       <view class="content_text {{foldStat?'hide':''}}">{{item.content}}</view>
       </view>
       <view class="data">
-        <button style="background-color:#0066ff1a" class="likeNum_btn" size="mini" bindtap="onLikeTap" data-index="{{item.commentId}}" wx:if="{{show == true}}">
-          <van-icon name="good-job-o" color="#3EB575"/>
+        <button style="background-color:#0066ff1a" class="likeNum_btn" size="mini" bindtap="onLikeTap" data-index="{{item.commentId}}">
+          <van-icon name="good-job-o" color="#3EB575" wx:if="{{show == false}}"/>
+          <van-icon name="good-job" color="#3EB575" wx:else/>
           <text class="likeNum_text">赞同 {{item.likeNum}}</text>
         </button>
         <button size="mini" class="comment_btn" style="background-color:white" bindtap="onShowChildren" data-index="{{item.commentId}}">

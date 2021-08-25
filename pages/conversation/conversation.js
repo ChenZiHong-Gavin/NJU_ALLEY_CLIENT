@@ -22,6 +22,7 @@ Page({
     value:"",
     picture:"",
     foldStat: true,
+    show: false
   },
 
 
@@ -49,7 +50,9 @@ Page({
         comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
         //通过用户id获取头像
         userApi.getUserData({userId:comment.userId}).then(rs =>{
+          // console.log(rs.data)
           comment.userAvatar=rs.data.avatar;
+          comment.userName=rs.data.name;
           that.setData({
             comments:res.data.comments
           })

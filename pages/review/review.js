@@ -127,15 +127,29 @@ Page({
 
      // console.log(this.data.mark_text_value)
 
-     console.log("aaaaa")
-     console.log(this.data.fileList[0]);
+     if(this.data.fileList.length==0)
+     {
+       this.setData(
+         {
+           fileList:-2
+         }
+       )
+     }
+     else
+     {
+       this.setData(
+         {
+           fileList:this.data.fileList[0].url
+         }
+       )
+     }
      let ArchCommentDTO = {
        archId:this.data.archId,
        // 没有父评论
        // fatherId:-1,
        userId:app.globalData.userId,
        content:this.data.mark_text_value,
-       picture:this.data.fileList[0].url
+       picture:this.data.fileList
      }
      console.log(ArchCommentDTO)
      archApi.commentBuilding(ArchCommentDTO).then(res =>{

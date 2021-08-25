@@ -162,6 +162,7 @@ Page({
     // console.log(event)
     // 获取阿里oss的policy
 
+    var that=this;
     commnetApi.getPolicy().then(res=>
       {
         console.log(res.data)
@@ -190,9 +191,9 @@ Page({
           success(res) {
             console.log(res)
             // 上传完成需要更新 fileList
-            const { fileList = [] } = this.data;
-            fileList.push({ ...file, url: res.data });
-            this.setData({ fileList });
+            const { fileList = [] } = that.data.fileList;
+            fileList.push({ ...file, url: aliyunFileKey+"/"+file.url.slice(11) });
+            that.setData({ fileList });
           },
         });
 

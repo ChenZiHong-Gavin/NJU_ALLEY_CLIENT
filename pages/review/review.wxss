@@ -58,7 +58,7 @@ page{
   margin-top: 20px;
 }
 .mark_stars{
-  margin-top:50px;
+  margin-top:20px;
 }
 
 .uploader

@@ -165,8 +165,15 @@ Page({
          if(that.data.comments[commnet_index].isLike==false)
          {
           likeNum_index=that.data.comments[commnet_index].likeNum+1;
-          // 展示点赞成功
           isLike_index=true
+           // 展示点赞成功
+          wx.showToast({
+            title: "点赞成功", // 提示的内容
+            icon: "success", // 图标，默认success
+            image: "", // 自定义图标的本地路径，image 的优先级高于 icon
+            duration: 1500, // 提示的延迟时间，默认1500
+            mask: false, // 是否显示透明蒙层，防止触摸穿透
+        })
          }
          else
          {

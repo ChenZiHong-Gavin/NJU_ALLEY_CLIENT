@@ -159,23 +159,25 @@ Page({
          console.log(rs)
 
          var likeNum_index;
-         console.log(commnet_index)
-         console.log(that.data.comments[i])
-         if(that.data.comments[i].isLike==false)
+        //  console.log(commnet_index)
+         console.log(that.data.comments[commnet_index])
+         if(that.data.comments[commnet_index].isLike==false)
          {
-          likeNum_index=that.data.comments[i].likeNum+1;
+          likeNum_index=that.data.comments[commnet_index].likeNum+1;
           // 展示点赞成功
+          that.data.comments[commnet_index].isLike=true
          }
          else
          {
-          likeNum_index=that.data.comments[i].likeNum+1;
+          likeNum_index=that.data.comments[commnet_index].likeNum-1;
           // 展示取消点赞
+          that.data.comments[commnet_index].isLike=false
          }
-         var index = "comments[" + i + "].likeNum";
+         var index = "comments[" + commnet_index + "].likeNum";
          that.setData({
            [index]:likeNum_index
          })
-         console.log(that.data.comments[i].likeNum)
+         console.log(that.data.comments[commnet_index].likeNum)
 
        })
 

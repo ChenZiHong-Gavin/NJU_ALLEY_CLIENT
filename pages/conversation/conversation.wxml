@@ -38,7 +38,7 @@
        <view wx:if="{{item.children.length > 0}}" >
          <view class="children_content"  wx:for="{{item.children}}" wx:key="commentId" wx:for-item="children">
             <view class="comment_user">
-              <image src="{{children.userAvatar}}" class="user_avatar" mode="center"></image>
+              <image src="{{children.userAvatar}}" class="user_avatar" mode="scaleToFill"></image>
               <text class="user_name">{{children.userName}}</text>
               <text class="create_time">{{children.createT}}</text>
             </view>
@@ -56,7 +56,9 @@
       class="input"
       >
       <button slot="button" style="background-color:white" size="mini">
-        <van-icon name="photo-o"  color="#3EB575"  /> 
+        <!-- 上传图片 -->
+    <van-uploader class="uploader" file-list="{{ fileList }}" bind:after-read="afterRead"  deletable="{{ false }}" preview-size="20px" max-count="1" />
+
       </button>
       </van-field>
       <button size="default" style="background-color:#3EB575;color:white" class="post" bindtap="onPostTap" data-index="{{item.commentId}}">

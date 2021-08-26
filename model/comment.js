@@ -38,6 +38,26 @@ class Comment extends Request{
     })
   }
 
+  
 
+  /**
+   * 评论建筑
+   */
+  commentComment(options){
+    return new Promise((resolve,reject)=>{
+      let props = {
+        url:`api/comment/comment`,
+        data:options,
+        type:"POST",
+        sCallBack:res=>{
+          resolve(res)
+        },
+        eCallBack:res=>{
+          reject(res)
+        }
+      }
+      this.request(props)
+    })
+  }
 }
 export {Comment}

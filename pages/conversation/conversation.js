@@ -2,8 +2,11 @@
 
 
 // 接口TODO：
-// 折叠
 // 评论
+// 回复了之后给发通知
+// 发布了帖子之后给发通知
+// 回复的样式
+
 
 const app=getApp()
 import {Arch} from '../../model/arch'
@@ -24,6 +27,7 @@ Page({
     value:"",
     picture:"",
     foldStat: true,
+    fileList:[]
 
   },
 
@@ -52,13 +56,16 @@ Page({
       {
         comment.foldStat=true;
       })
-
-
       comments.forEach((comment)=>{
         console.log(comment)
-        //转换时间戳
+        // 转换时间戳
         comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
-        //通过用户id获取头像
+        // 转换子评论的时间戳
+        comment.children.forEach((childComment)=>
+        {
+          childComment.createT = (new Date(childComment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(childComment.createT)).toTimeString().substr(0, 8);
+        })
+        // 通过用户id获取头像
         userApi.getUserData({userId:comment.userId}).then(rs =>{
           // console.log(rs.data)
           comment.userAvatar=rs.data.avatar;
@@ -67,6 +74,23 @@ Page({
             comments:res.data.comments
           })
         })
+
+        // 子评论也要获取头像
+        comment.children.forEach((childComment)=>
+        {
+          userApi.getUserData({userId:childComment.userId}).then(rs =>{
+            // console.log(rs.data)
+            childComment.userAvatar=rs.data.avatar;
+            childComment.userName=rs.data.name;
+            that.setData({
+              comments:res.data.comments
+            })
+        })
+      })
+      
+
+        
+
         //通过用户id得知是否点赞过这条评论
         userApi.getIsLiked({userId:app.globalData.userId,commentId:comment.commentId}).then(rs=>{
           comment.isLike=rs.data.isLike;
@@ -176,7 +200,7 @@ Page({
          var likeNum_index;
          var isLike_index;
         //  console.log(commnet_index)
-         console.log(that.data.comments[commnet_index])
+        //  console.log(that.data.comments[commnet_index])
          if(that.data.comments[commnet_index].isLike==false)
          {
           likeNum_index=that.data.comments[commnet_index].likeNum+1;
@@ -259,12 +283,93 @@ Page({
  * @param {*} e 
  */
   onPostTap(e){
+
+    console.log(this.data.fileList)
+    if(this.data.fileList.length==0)
+    {
+      this.setData(
+        {
+          fileList:-2
+        }
+      )
+    }
+    else
+    {
+      this.setData(
+        {
+          fileList:this.data.fileList[0].url
+        }
+      )
+    }
+
     var that = this;
     var commentId_index = e.currentTarget.dataset.index;
-    console.log(commentId_index)
+    // console.log(commentId_index)
     var content = that.data.value;
     var archId = that.data.archId;
-    var picture = that.data.picture;
+    var picture = that.data.fileList;
+
     //todo 提交评论至后端
-  }
+    let childComment=
+    {
+      archId:archId,
+      fatherId:commentId_index,
+      userId:app.globalData.userId,
+      content:content,
+      picture:picture
+    }
+    commentApi.commentComment(childComment).then(res =>{
+      // 重新获取一遍
+
+     })
+
+  },
+
+
+  afterRead(event) {
+    // console.log("after-read")
+    // console.log(event)
+    // 获取阿里oss的policy
+
+    var that=this;
+    commentApi.getPolicy().then(res=>
+      {
+        // console.log(res.data)
+        const aliyunServerURL=res.data.host;
+        const aliyunFileKey=res.data.dir;
+        const accessId=res.data.accessKeyId;
+        const policy=res.data.policy;
+        const signature=res.data.signature;
+
+        const { file } = event.detail;
+        console.log(file.url.slice(11))
+        // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+        // 上传到远端服务器
+        wx.uploadFile({
+          url: aliyunServerURL, 
+          filePath: file.url,
+          name: 'file',
+          formData: 
+          { 
+            'key': aliyunFileKey+"/"+file.url.slice(11),
+            'policy': policy,
+            'OSSAccessKeyId':accessId,
+            'signature': signature,
+            'success_action_status': '200',
+          },
+          success(res) {
+            // console.log(res)
+            // 上传完成需要更新 fileList
+            const { fileList = [] } = that.data.fileList;
+            fileList.push({url:aliyunServerURL+"/"+aliyunFileKey+"/"+file.url.slice(11)});
+            that.setData({ fileList });
+          },
+        });
+
+
+      }
+    )
+
+  },
+
 })

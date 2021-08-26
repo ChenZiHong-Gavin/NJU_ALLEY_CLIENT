@@ -6,7 +6,7 @@ import {Arch} from '../../model/arch'
 import {Comment} from '../../model/comment'
 
 const archApi = new Arch()
-const commnetApi = new Comment()
+const commentApi = new Comment()
 
 const app = getApp()
 
@@ -151,7 +151,7 @@ Page({
        content:this.data.mark_text_value,
        picture:this.data.fileList
      }
-     console.log(ArchCommentDTO)
+    //  console.log(ArchCommentDTO)
      archApi.commentBuilding(ArchCommentDTO).then(res =>{
       console.log(res)
      })
@@ -176,7 +176,7 @@ Page({
     // 获取阿里oss的policy
 
     var that=this;
-    commnetApi.getPolicy().then(res=>
+    commentApi.getPolicy().then(res=>
       {
         console.log(res.data)
         const aliyunServerURL=res.data.host;

@@ -21,7 +21,7 @@
         <view wx:if="{{item.picture!='-2'}}">
           <image src="{{item.picture}}" class="picture" mode="aspectFit"></image>
         </view>
-      <view class="content_text {{foldStat?'hide':''}}">{{item.content}}</view>
+      <view class="content_text {{item.foldStat?'hide':''}}">{{item.content}}</view>
       </view>
       <view class="data">
         <button style="background-color:#0066ff1a" class="likeNum_btn" size="mini" bindtap="onLikeTap" data-index="{{item.commentId}}">

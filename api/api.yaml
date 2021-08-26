@@ -241,7 +241,7 @@ paths:
                       $ref: "#/components/schemas/CommentVO"
 
 
-  /user/comment/is_like/{userId}:
+  /user/comment/isLike/{userId}:
     get:
       tags:
         - user

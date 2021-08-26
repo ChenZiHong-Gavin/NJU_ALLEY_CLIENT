@@ -2,7 +2,7 @@
 
 
 // 接口TODO：
-// 点赞/取消点赞
+// 折叠
 // 评论
 
 const app=getApp()
@@ -47,6 +47,13 @@ Page({
 
     archApi.getBuildingDetail({archId:archId}).then(res =>{
       var comments=res.data.comments;
+      // 把所有评论的折叠状态都设为true
+      comments.forEach((comment)=>
+      {
+        comment.foldStat=true;
+      })
+
+
       comments.forEach((comment)=>{
         console.log(comment)
         //转换时间戳
@@ -134,11 +141,19 @@ Page({
 
 
   onReadMore(e){
-    console.log(e.currentTarget.dataset.index)
+    // console.log(e.currentTarget.dataset.index)
     var that = this;
-    that.setData({
-      foldStat: !that.data.foldStat
-    })
+    var commentId_index = e.currentTarget.dataset.index;
+    for(var i = 0 ; i<that.data.comments.length;++i) {
+      if(that.data.comments[i].commentId == commentId_index) {
+        var comment_index=i;
+        var origin=that.data.comments[comment_index].foldStat
+        var foldIndex = "comments[" + comment_index + "].foldStat";
+        that.setData({
+          [foldIndex]:!origin
+        })
+      }
+    }
   },
 
 /**

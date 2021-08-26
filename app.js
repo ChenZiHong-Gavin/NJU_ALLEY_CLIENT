@@ -2,7 +2,8 @@
 App({
   globalData: {
     userInfo: null,
-    userId:0
+    userId:0,
+    code:""
   },
 
   onLaunch() {

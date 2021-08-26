@@ -2,7 +2,8 @@
 
 
 const app = getApp()
-
+import {User} from '../../model/user'
+const userApi = new User()
 
 Page({
 
@@ -14,6 +15,7 @@ Page({
     showRight: false,
     showShareTip: false,
     showShare: false,
+    showThanksTip: false,
     options: [
       [
         { name: '微信', icon: 'wechat' },
@@ -31,6 +33,13 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo
       })
+    }
+    else{
+      // 通过后端获取用户信息，不过可能没什么必要？
+      userApi.getUserData({userId:app.globalData.userId}).then(res=>
+        {
+
+        })
     }
   },
 
@@ -143,6 +152,22 @@ Page({
 
   onClickHide() {
     this.setData({ showRight: false });
+  },
+
+
+  onThanksClick() {
+    this.setData(
+      {
+        showThanksTip: true
+      }
+    )
+  },
+  onClickThanksHide() {
+    this.setData(
+      {
+        showThanksTip: false
+      }
+    )
   },
 
   noop() {},

@@ -1,9 +1,8 @@
 // pages/map/map.js
+const app = getApp()
 import {Arch} from '../../model/arch'
-
 const archApi = new Arch()
 
-const app = getApp()
 
 var mapCtx;
 
@@ -24,13 +23,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    // 异步真的没办法
+    var that=this;
     if (app.globalData.userInfo) {
-      console.log(app.globalData.userInfo)
-      this.setData({
+      
+      that.setData({
         userInfo: app.globalData.userInfo
       })
   }
-  var that=this;
  
   wx.getSystemInfo({
     success: (result) => {
@@ -133,6 +134,7 @@ onMarkerTap: function (e) {
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
 
   },
 

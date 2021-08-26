@@ -153,7 +153,7 @@ Page({
      }
     //  console.log(ArchCommentDTO)
      archApi.commentBuilding(ArchCommentDTO).then(res =>{
-      console.log(res)
+      // console.log(res)
      })
      // 评分
      archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:app.globalData.userId}).then(res =>{

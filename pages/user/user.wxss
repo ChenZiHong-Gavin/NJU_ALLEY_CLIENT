@@ -90,3 +90,16 @@ border-radius: 50% !important;
 position: absolute;
 top: 20px;
 }
+
+
+.thanks-text
+{
+  margin: 10%;
+  overflow-y: auto;
+  overflow-x: scroll ;
+  justify-content: center;
+  display: block;
+  height: 500px;
+  align-items: center;
+  max-height: 500px;
+}

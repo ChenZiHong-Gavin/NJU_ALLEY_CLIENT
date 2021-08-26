@@ -2,7 +2,6 @@
 
 
 // 接口TODO：
-// 评论即使更新
 // 回复了之后给发通知
 // 发布了帖子之后给发通知
 
@@ -317,6 +316,7 @@ Page({
     }
     commentApi.commentComment(childComment).then(rs =>{
 
+      // 清空数据
       that.setData(
         {
           value:"",

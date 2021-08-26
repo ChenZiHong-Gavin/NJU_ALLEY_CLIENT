@@ -11,6 +11,7 @@
     "van-collapse": "../../vant-weapp/dist/collapse/index",
     "van-collapse-item": "../../vant-weapp/dist/collapse-item/index",
     "van-uploader": "../../vant-weapp/dist/uploader/index",
-    "van-notify": "../../vant-weapp/dist/notify/index"
+    "van-notify": "../../vant-weapp/dist/notify/index",
+    "van-popup": "../../vant-weapp/dist/popup/index"
   }
 }

@@ -33,6 +33,7 @@ Page({
           success: async (rs) => {
             if(rs.code){
         
+              app.globalData.code=rs.code;
               // 向后端发送登录请求
               let params = {
                 code:rs.code, 
@@ -45,7 +46,7 @@ Page({
               })
      
               app.globalData.userInfo=res.userInfo;
-              console.log(app.globalData.userInfo)
+              // console.log(app.globalData.userInfo)
               that.setData({
                 hasUserInfo: true
               });

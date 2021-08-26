@@ -25,7 +25,6 @@ Page({
     comments:[],
     value:"",
     picture:"",
-    foldStat: true,
     fileList:[]
 
   },
@@ -282,11 +281,11 @@ Page({
  * @param {*} e 
  */
   onPostTap(e){
-
-    console.log(this.data.fileList)
-    if(this.data.fileList.length==0)
+    var that=this;
+    console.log(that.data.fileList)
+    if(that.data.fileList.length==0||that.data.fileList==-2)
     {
-      this.setData(
+      that.setData(
         {
           fileList:-2
         }
@@ -294,14 +293,13 @@ Page({
     }
     else
     {
-      this.setData(
+      that.setData(
         {
-          fileList:this.data.fileList[0].url
+          fileList:that.data.fileList[0].url
         }
       )
     }
 
-    var that = this;
     var commentId_index = e.currentTarget.dataset.index;
     // console.log(commentId_index)
     var content = that.data.value;
@@ -317,7 +315,15 @@ Page({
       content:content,
       picture:picture
     }
-    commentApi.commentComment(childComment).then(res =>{
+    commentApi.commentComment(childComment).then(rs =>{
+
+      that.setData(
+        {
+          value:"",
+          picture:"",
+          fileList:[]
+        }
+      )
 
       // 提示评论成功
       wx.showToast({
@@ -327,6 +333,7 @@ Page({
         duration: 1500, // 提示的延迟时间，默认1500
         mask: false, // 是否显示透明蒙层，防止触摸穿透
     })
+
 
 
       // 重新获取一遍
@@ -423,7 +430,7 @@ Page({
           success(res) {
             // console.log(res)
             // 上传完成需要更新 fileList
-            const { fileList = [] } = that.data.fileList;
+            const fileList = that.data.fileList;
             fileList.push({url:aliyunServerURL+"/"+aliyunFileKey+"/"+file.url.slice(11)});
             that.setData({ fileList });
           },

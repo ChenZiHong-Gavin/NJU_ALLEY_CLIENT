@@ -19,13 +19,13 @@
       </view>
       <view class="content" bindtap="onReadMore" data-index="{{item.commentId}}">
         <view wx:if="{{item.picture!='-2'}}">
-          <image src="{{item.picture}}" class="picture" mode="scaleToFil"></image>
+          <image src="{{item.picture}}" class="picture" mode="aspectFit"></image>
         </view>
       <view class="content_text {{foldStat?'hide':''}}">{{item.content}}</view>
       </view>
       <view class="data">
         <button style="background-color:#0066ff1a" class="likeNum_btn" size="mini" bindtap="onLikeTap" data-index="{{item.commentId}}">
-          <van-icon name="good-job-o" color="#3EB575" wx:if="{{show == false}}"/>
+          <van-icon name="good-job-o" color="#3EB575" wx:if="{{item.isLike == false}}"/>
           <van-icon name="good-job" color="#3EB575" wx:else/>
           <text class="likeNum_text">赞同 {{item.likeNum}}</text>
         </button>

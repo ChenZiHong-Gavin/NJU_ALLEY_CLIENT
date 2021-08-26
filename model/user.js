@@ -50,6 +50,27 @@ class User extends Request{
       this.request(props)
     })
 
+  }
+
+
+   /**
+   * 是否点赞
+   */
+  getIsLiked(options){
+    return new Promise((resolve,reject)=>{
+      let props = {
+        url:`api/user/comment/isLike/${options.userId}?commentId=${options.commentId}`,
+        data:options,
+        type:"GET",
+        sCallBack:res=>{
+          resolve(res)
+        },
+        eCallBack:res=>{
+          reject(res)
+        }
+      }
+      this.request(props)
+    })
 
   }
 

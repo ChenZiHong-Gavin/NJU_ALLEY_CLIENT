@@ -4,12 +4,14 @@
 // 接口TODO：
 // 点赞/取消点赞
 // 评论
-// 获取用户名头像
 
+const app=getApp()
 import {Arch} from '../../model/arch'
 const archApi = new Arch()
 import {User} from '../../model/user'
 const userApi = new User()
+import {Comment} from '../../model/comment'
+const commentApi = new Comment()
 
 Page({
 
@@ -22,7 +24,7 @@ Page({
     value:"",
     picture:"",
     foldStat: true,
-    show: false
+
   },
 
 
@@ -46,6 +48,7 @@ Page({
     archApi.getBuildingDetail({archId:archId}).then(res =>{
       var comments=res.data.comments;
       comments.forEach((comment)=>{
+        console.log(comment)
         //转换时间戳
         comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
         //通过用户id获取头像
@@ -57,6 +60,15 @@ Page({
             comments:res.data.comments
           })
         })
+        //通过用户id得知是否点赞过这条评论
+        userApi.getIsLiked({userId:app.globalData.userId,commentId:comment.commentId}).then(rs=>{
+          comment.isLike=rs.data.isLike;
+          console.log(comment)
+          that.setData({
+            comments:res.data.comments
+          })
+        }
+        )
         // console.log(comment)
       });
 
@@ -136,14 +148,38 @@ Page({
   onLikeTap(e){
     var that = this;
     var commentId_index = e.currentTarget.dataset.index;
-    for(var i = 0 ; i<that.data.comments.length;++i) {
+    // console.log(commentId_index)
+
+    for(var i = 0 ; i<that.data.comments.length;i++) {
       if(that.data.comments[i].commentId == commentId_index) {
-       var likeNum_index = that.data.comments[i].likeNum+1;
-       var index = "comments[" + i + "].likeNum";
-       that.setData({
-         [index]:likeNum_index
+      var commnet_index=i;
+      // 如果是这条评论
+      // 首先给后端发送请求，后端自己判断是点赞还是取消点赞
+       commentApi.likeComment({commentId:commentId_index,userId:app.globalData.userId}).then(rs =>{
+         console.log(rs)
+
+         var likeNum_index;
+         console.log(commnet_index)
+         console.log(that.data.comments[i])
+         if(that.data.comments[i].isLike==false)
+         {
+          likeNum_index=that.data.comments[i].likeNum+1;
+          // 展示点赞成功
+         }
+         else
+         {
+          likeNum_index=that.data.comments[i].likeNum+1;
+          // 展示取消点赞
+         }
+         var index = "comments[" + i + "].likeNum";
+         that.setData({
+           [index]:likeNum_index
+         })
+         console.log(that.data.comments[i].likeNum)
+
        })
-       console.log(that.data.comments[i].likeNum)
+
+     
       }  
     }
    // todo 更新后端数据

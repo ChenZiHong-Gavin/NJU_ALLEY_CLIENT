@@ -21,6 +21,23 @@ class Comment extends Request{
   }
 
   
+  likeComment(options){
+    return new Promise((resolve,reject)=>{
+      let props = {
+        url:`api/comment/like/${options.commentId}?userId=${options.userId}`,
+        data:options.data,
+        type:"POST",
+        sCallBack:res=>{
+          resolve(res)
+        },
+        eCallBack:res=>{
+          reject(res)
+        }
+      }
+      this.request(props)
+    })
+  }
+
 
 }
 export {Comment}

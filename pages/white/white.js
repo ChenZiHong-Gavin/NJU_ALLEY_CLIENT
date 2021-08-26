@@ -15,7 +15,7 @@ Page({
     // 获取本地存储数据
     const welecome = wx.getStorageSync('welcome');
     if (welecome) {
-      console.log(welecome);
+      // console.log(welecome);
       wx.redirectTo({
         url: "../index/index",
       })

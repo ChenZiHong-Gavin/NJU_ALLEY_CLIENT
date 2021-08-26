@@ -42,6 +42,9 @@
               <text class="user_name">{{children.userName}}</text>
               <text class="create_time">{{children.createT}}</text>
             </view>
+            <view wx:if="{{children.picture!='-2'}}">
+          <image src="{{children.picture}}" class="picture" mode="aspectFit"></image>
+        </view>
             <view class="children_text">{{children.content}}</view>
         </view>
          <van-divider />

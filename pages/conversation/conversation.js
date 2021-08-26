@@ -2,10 +2,9 @@
 
 
 // 接口TODO：
-// 评论
+// 评论即使更新
 // 回复了之后给发通知
 // 发布了帖子之后给发通知
-// 回复的样式
 
 
 const app=getApp()
@@ -319,7 +318,71 @@ Page({
       picture:picture
     }
     commentApi.commentComment(childComment).then(res =>{
+
+      // 提示评论成功
+      wx.showToast({
+        title: "评论成功", // 提示的内容
+        icon: "success", // 图标，默认success
+        image: "", // 自定义图标的本地路径，image 的优先级高于 icon
+        duration: 1500, // 提示的延迟时间，默认1500
+        mask: false, // 是否显示透明蒙层，防止触摸穿透
+    })
+
+
       // 重新获取一遍
+      archApi.getBuildingDetail({archId:archId}).then(res =>{
+        var comments=res.data.comments;
+        // 把所有评论的折叠状态都设为true
+        comments.forEach((comment)=>
+        {
+          comment.foldStat=true;
+        })
+        comments.forEach((comment)=>{
+          console.log(comment)
+          // 转换时间戳
+          comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
+          // 转换子评论的时间戳
+          comment.children.forEach((childComment)=>
+          {
+            childComment.createT = (new Date(childComment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(childComment.createT)).toTimeString().substr(0, 8);
+          })
+          // 通过用户id获取头像
+          userApi.getUserData({userId:comment.userId}).then(rs =>{
+            // console.log(rs.data)
+            comment.userAvatar=rs.data.avatar;
+            comment.userName=rs.data.name;
+            that.setData({
+              comments:res.data.comments
+            })
+          })
+  
+          // 子评论也要获取头像
+          comment.children.forEach((childComment)=>
+          {
+            userApi.getUserData({userId:childComment.userId}).then(rs =>{
+              // console.log(rs.data)
+              childComment.userAvatar=rs.data.avatar;
+              childComment.userName=rs.data.name;
+              that.setData({
+                comments:res.data.comments
+              })
+          })
+        })
+        
+          //通过用户id得知是否点赞过这条评论
+          userApi.getIsLiked({userId:app.globalData.userId,commentId:comment.commentId}).then(rs=>{
+            comment.isLike=rs.data.isLike;
+            console.log(comment)
+            that.setData({
+              comments:res.data.comments
+            })
+          }
+          )
+          // console.log(comment)
+        });
+  
+      })
+
 
      })
 

@@ -2,14 +2,16 @@
   "usingComponents": {
   },
   "pages":[
+    
     "pages/white/white",
+    "pages/index/index",
     "pages/conversation/conversation",
     "pages/notifications/notifications",
     "pages/user/user",
     "pages/review/review",
     "pages/building/building",
     "pages/map/map",
-    "pages/index/index",
+    
     "pages/welcome/welcome",
     "pages/introduce/introduce",
     "pages/logs/logs"

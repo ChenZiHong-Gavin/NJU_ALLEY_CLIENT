@@ -24,7 +24,8 @@ Page({
     comments:[],
     value:"",
     picture:"",
-    fileList:[]
+    fileList:[],
+    userId: 0,
 
   },
 
@@ -38,8 +39,11 @@ Page({
 
     var that = this;
 
-    let archId = options.archId;
 
+
+
+
+    let archId = options.archId;
     console.log("conversation-archId: " + archId);
     that.setData({
       archId:archId
@@ -54,7 +58,7 @@ Page({
         comment.foldStat=true;
       })
       comments.forEach((comment)=>{
-        console.log(comment)
+        // console.log(comment)
         // 转换时间戳
         comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
         // 转换子评论的时间戳
@@ -89,9 +93,9 @@ Page({
         
 
         //通过用户id得知是否点赞过这条评论
-        userApi.getIsLiked({userId:app.globalData.userId,commentId:comment.commentId}).then(rs=>{
+        userApi.getIsLiked({userId:this.data.userId,commentId:comment.commentId}).then(rs=>{
           comment.isLike=rs.data.isLike;
-          console.log(comment)
+          // console.log(comment)
           that.setData({
             comments:res.data.comments
           })
@@ -115,7 +119,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that=this;
+    wx.getStorage({
+      key: 'userId',
+      success: function(res) {
+        console.log("aaaa")
+        console.log(res.data)
+        that.setData(
+          {
+            userId:res.data
+          }
+        )
+      },
+    })
   },
 
   /**
@@ -191,7 +207,7 @@ Page({
       var commnet_index=i;
       // 如果是这条评论
       // 首先给后端发送请求，后端自己判断是点赞还是取消点赞
-       commentApi.likeComment({commentId:commentId_index,userId:app.globalData.userId}).then(rs =>{
+       commentApi.likeComment({commentId:commentId_index,userId:that.data.userId}).then(rs =>{
          console.log(rs)
 
          var likeNum_index;
@@ -299,23 +315,42 @@ Page({
       )
     }
 
+    wx.getStorage({
+      key: 'userId',
+      success: function(res) {
+        that.setData(
+          {
+            userId:res.data
+          },()=>
+          {
+            console.log(that.data.userId)
+          }
+        )
+      },
+    })
+
+
     var commentId_index = e.currentTarget.dataset.index;
     // console.log(commentId_index)
     var content = that.data.value;
     var archId = that.data.archId;
     var picture = that.data.fileList;
+    var userId = that.data.userId;
+    console.log(userId)
 
     //todo 提交评论至后端
     let childComment=
     {
       archId:archId,
       fatherId:commentId_index,
-      userId:app.globalData.userId,
+      userId:that.data.userId,
       content:content,
       picture:picture
     }
+    
     commentApi.commentComment(childComment).then(rs =>{
 
+      console.log(childComment)
       // 清空数据
       that.setData(
         {
@@ -345,7 +380,7 @@ Page({
           comment.foldStat=true;
         })
         comments.forEach((comment)=>{
-          console.log(comment)
+          // console.log(comment)
           // 转换时间戳
           comment.createT = (new Date(comment.createT)).toLocaleDateString().replace(/\//g, "-") + " " + (new Date(comment.createT)).toTimeString().substr(0, 8);
           // 转换子评论的时间戳
@@ -377,9 +412,9 @@ Page({
         })
         
           //通过用户id得知是否点赞过这条评论
-          userApi.getIsLiked({userId:app.globalData.userId,commentId:comment.commentId}).then(rs=>{
+          userApi.getIsLiked({userId:this.data.userId,commentId:comment.commentId}).then(rs=>{
             comment.isLike=rs.data.isLike;
-            console.log(comment)
+            // console.log(comment)
             that.setData({
               comments:res.data.comments
             })

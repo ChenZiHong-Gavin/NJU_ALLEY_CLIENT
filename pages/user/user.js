@@ -28,9 +28,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app);
+
+       // 异步真的没办法
+       var that=this;
+       wx.getStorage({
+         key: 'userInfo',
+         success: function(res) {
+           that.setData(
+             {
+               userInfo:res.data
+             }
+           )
+         },
+       })
     if (app.globalData.userInfo) {
       console.log(app.globalData.userInfo)
-      this.setData({
+      that.setData({
         userInfo: app.globalData.userInfo
       })
     }

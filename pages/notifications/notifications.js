@@ -18,7 +18,8 @@ Page({
   data: {
     temp_list:[],
     notification_list:[],
-    show:true
+    show:true,
+    userId:0
   },
 
 
@@ -31,7 +32,19 @@ Page({
 
     var that= this;
     // 接收来自后端的数据
-      noticeApi.getNotices({userId:app.globalData.userId}).then(res=>
+
+    wx.getStorage({
+      key: 'userId',
+      success: function(res) {
+        that.setData(
+          {
+            userId:res.data
+          }
+        )
+      },
+    })
+
+      noticeApi.getNotices({userId:that.data.userId}).then(res=>
         {
           // res.data是所有的消息
           console.log(res)
@@ -43,7 +56,7 @@ Page({
                   {
                     noticeId: -1,
                     senderId: 1,
-                    isUnread: false,
+                    isUnread: true,
                     content:"你暂时还没有收到任何消息哦"
                   }
                 ]
@@ -52,7 +65,7 @@ Page({
           var unReadNotices=[]
           res.data.forEach((p)=>
           {
-            if(p.isUnread==false)
+            if(p.isUnread==true)
               {
                // 未读消息
                if(p.senderId!=1)

@@ -24,14 +24,25 @@ Page({
    */
   onLoad: function (options) {
 
-    // 异步真的没办法
-    var that=this;
-    if (app.globalData.userInfo) {
+     // 异步真的没办法
+     var that=this;
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+        that.setData(
+          {
+            userInfo:res.data
+          }
+        )
+      },
+    })
+
+  //   if (app.globalData.userInfo) {
       
-      that.setData({
-        userInfo: app.globalData.userInfo
-      })
-  }
+  //     that.setData({
+  //       userInfo: app.globalData.userInfo
+  //     })
+  // }
  
   wx.getSystemInfo({
     success: (result) => {
@@ -111,6 +122,8 @@ showMarkers(){
   }).catch(err =>{
     console.log(err)
   })
+
+  
   mapCtx.addMarkers({
     markers,
     clear: false,

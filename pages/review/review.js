@@ -16,13 +16,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo:[],
     archId:0,
     value: 0,
     user_name:"",
     building_name:"",
     mark_text_value:"",
     fileList:[],
-    showSuccess:false
+    showSuccess:false,
+    userId:0
   },
 
   /**
@@ -31,11 +33,42 @@ Page({
   onLoad: function (options) {
     var that = this;
     
+    wx.getStorage({
+      key: 'userId',
+      success: function(res) {
+        that.setData(
+          {
+            userId:res.data
+          },()=>
+          {
+            console.log(that.data.userId)
+            // console.log(this.data.userId)
+          }
+        )
+      },
+    })
+       // 异步真的没办法
+       wx.getStorage({
+         key: 'userInfo',
+         success: function(res) {
+           that.setData(
+             {
+              user_name:res.data.nickName,
+             },()=>
+             {
+               console.log(res.data.nickName)
+             }
+           )
+         },
+       })
+
+
     let building_name = options.building_name;
     let archId = options.archId;
-    console.log("review-archId: " + archId);
+    // console.log("review-archId: " + archId);
+    console.log(that.data.userInfo)
     that.setData({
-      user_name:app.globalData.userInfo.nickName,
+     
       building_name:building_name,
       archId:archId
     })
@@ -147,7 +180,7 @@ Page({
        archId:this.data.archId,
        // 没有父评论
        // fatherId:-1,
-       userId:app.globalData.userId,
+       userId:this.data.userId,
        content:this.data.mark_text_value,
        picture:this.data.fileList
      }
@@ -156,7 +189,7 @@ Page({
       // console.log(res)
      })
      // 评分
-     archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:app.globalData.userId}).then(res =>{
+     archApi.rateBuilding({archId:this.data.archId, score:this.data.value, userId:this.data.userId}).then(res =>{
       console.log(res)
       this.onClickShow();
      })
@@ -184,9 +217,9 @@ Page({
         const accessId=res.data.accessKeyId;
         const policy=res.data.policy;
         const signature=res.data.signature;
-
         const { file } = event.detail;
-        console.log(file.url.slice(11))
+        console.log(aliyunServerURL)
+        // console.log(file.url.slice(11))
         // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
         // 上传到远端服务器
         wx.uploadFile({

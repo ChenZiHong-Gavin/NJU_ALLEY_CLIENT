@@ -24,13 +24,13 @@ Page({
     var that= this;
     // 加载页面数据（封面等
     let archId = options.archId;
-    console.log("building-archId: " + archId);
+    // console.log("building-archId: " + archId);
     that.setData({
       archId:archId
     })
     
     archApi.getBuildingDetail({archId:archId}).then(res =>{
-      console.log(res)
+      // console.log(res)
       that.setData({
         picture:res.data.pictures[0],
         intro_text:res.data.des,

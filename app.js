@@ -12,8 +12,16 @@ App({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-   
-   this.overShare()
+    that.overShare()
+
+    wx.login({
+      success: async (rs) => {
+        if(rs.code){
+          that.globalData.code=rs.code;
+        }
+      }
+    })
+
   },
   
   overShare: function () {

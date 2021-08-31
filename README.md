@@ -2,11 +2,11 @@
 
 # 🌟给自己加一个星星
 
-![demo](static/demo.jpg)
+![demo](https://s3.bmp.ovh/imgs/2021/08/28fd59ef83f4373f.jpg)
 
 体验地址：
 
-![QR](static/QR.jpg)
+![QR-code](https://s3.bmp.ovh/imgs/2021/08/f2632f2afe7ce0f7.jpg)
 
 前端开发：
 
@@ -74,6 +74,7 @@ hwd,zzh
        "pages/welcome/welcome",
     "pages/introduce/introduce",
        "pages/logs/logs"
+   ```
 ```
    
 基本功能：
@@ -96,12 +97,12 @@ hwd,zzh
    
   ``` wxml
      <map id="map" longitude="113.324520" latitude="23.099994" scale="14"></map>
-     ```
-   
+```
+
      微信小程序中的map组件默认使用腾讯地图。
-   
+       
      设置map全屏：
-   
+       
      ``` js
      //index.js
      var app = getApp()
@@ -181,11 +182,11 @@ hwd,zzh
    
          ``` json
          "navigationStyle": "custom"
-         ```
-   
-     
-     
-     
+  ```
+
+
+​     
+​     
      8. 使用小程序内置的canvas渲染器，在cax中实现svg标准的子集
      
         实现起来太过于复杂，并且这种svg仅仅只是静态图片，没有办法有动态效果

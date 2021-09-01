@@ -24,7 +24,7 @@ hwd,zzh
 
 ## 感谢点赞 Stargazers
 
-[![Stargazers repo roster for @Turkyden/wechat-link](https://reporoster.com/stars/Turkyden/wechat-link)](https://github.com/Turkyden/wechat-link/stargazers)
+[![Stargazers](https://reporoster.com/stars/ChenZiHong-Gavin/NJU_ALLEY_CLIENT)](https://github.com/Turkyden/wechat-link/stargazers)
 
 
 

@@ -1,12 +1,12 @@
 # 🌟🌟🌟南大小巷：南京大学公共空间的“大众点评”
 
-# 🌟给自己加一个星星
-
 ![demo](https://s3.bmp.ovh/imgs/2021/08/28fd59ef83f4373f.jpg)
 
-体验地址：
+### 使用Usage
 
 ![QR-code](https://s3.bmp.ovh/imgs/2021/08/f2632f2afe7ce0f7.jpg)
+
+## 开发Develop
 
 前端开发：
 
@@ -19,6 +19,12 @@ hwd,zzh
 后端项目地址：[xxh160/alley-server-v2: 用于校园建筑评分的 nju-alley 后端 (github.com)](https://github.com/xxh160/alley-server-v2)
 
 🌟项目用途：南京大学公共空间的建筑评分与讨论
+
+
+
+## 感谢点赞 Stargazers
+
+[![Stargazers repo roster for @Turkyden/wechat-link](https://reporoster.com/stars/Turkyden/wechat-link)](https://github.com/Turkyden/wechat-link/stargazers)
 
 
 
@@ -187,8 +193,8 @@ hwd,zzh
 
 ​     
 ​     
-     8. 使用小程序内置的canvas渲染器，在cax中实现svg标准的子集
-     
+​     8. 使用小程序内置的canvas渲染器，在cax中实现svg标准的子集
+​     
         实现起来太过于复杂，并且这种svg仅仅只是静态图片，没有办法有动态效果
 - 确定使用条款与权限
   
